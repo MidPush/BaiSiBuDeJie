@@ -1,0 +1,13 @@
+platform:ios, '8.0'
+
+target 'BaiSiBuDeJie' do
+
+pod 'AFNetworking'
+pod 'SDWebImage'
+pod 'MJRefresh'
+pod 'Masonry'
+pod 'SVProgressHUD'
+pod 'pop'
+pod 'YYModel'
+
+end

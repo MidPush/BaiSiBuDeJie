@@ -1,0 +1,26 @@
+//
+//  PrefixHeader.pch
+//  BaiSiBuDeJie
+//
+//  Created by zhong on 16/12/20.
+//  Copyright © 2016年 Xz Studio. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef DEBUG
+#define BSLog(FORMAT,...) fprintf(stderr,"%s:%d\t%s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+#define BSLog(FORMAT,...)
+#endif
+
+#import "UIView+Position.h"
+#import "UIColor+Ex.h"
+#import "UIBarButtonItem+Item.h"
+
+#import "UIDefine.h"
+
+#import "ApiEngine.h"
+
+#endif /* PrefixHeader_pch */
