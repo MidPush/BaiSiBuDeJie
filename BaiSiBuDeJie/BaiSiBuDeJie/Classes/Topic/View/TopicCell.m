@@ -24,7 +24,6 @@
 @property (nonatomic, strong) UIButton *longTextButton;
 @property (nonatomic, strong) TopicPictureView *pictureView;
 @property (nonatomic, strong) TopicVideoView *videoView;
-
 @property (nonatomic, strong) TopicToolBar *toolBar;
 @property (nonatomic, strong) TopicHotCommentView *hotCommentView;
 @end
@@ -37,7 +36,7 @@
         self.backgroundColor = [UIColor whiteColor];
         // 分隔线
         _separatorView = [[UIView alloc] init];
-        _separatorView.backgroundColor = RGB(233, 233, 233);
+        _separatorView.backgroundColor = kBaseViewHighlightColor;
         [self.contentView addSubview:_separatorView];
         
         // 个人资料
@@ -89,42 +88,42 @@
 }
 
 - (void)setLayout:(TopicLayout *)layout {
-    if (_layout != layout) {
-        _layout = layout;
-        _separatorView.frame = layout.separatorFrame;
-        _profileView.frame = layout.profileFrame;
-        _contentLabel.frame = layout.textFrame;
-        _pictureView.frame = layout.pictureContainerFrame;
-        _videoView.frame = layout.videoContainerFrame;
-        _toolBar.frame = layout.toolBarFrame;
-        _hotCommentView.frame = layout.hotCommentViewFrame;
-        _longTextButton.frame = layout.longTextButtonFrame;
-        if (layout.isPicture || layout.isGifPicture || layout.isHtmlPicture) { // 图片
-            _pictureView.hidden = NO;
-            _videoView.hidden = YES;
-        }else if (layout.isVideo) { // 视频
-            _videoView.hidden = NO;
-            _pictureView.hidden = YES;
-        }
-        
-        
-        _pictureView.layout = layout;
-        _videoView.layout = layout;
-        
-        _profileView.layout = layout;
-        _toolBar.layout = layout;
-        _hotCommentView.layout = layout;
-        _contentLabel.text = layout.topic.text;
-        if (layout.isHtmlPicture) {
-            _contentLabel.text = layout.topic.html.desc;
-        }
-        if (layout.isShowLongText) {
-            [_longTextButton setTitle:@"收起" forState:UIControlStateNormal];
-        }else {
-            [_longTextButton setTitle:@"全文" forState:UIControlStateNormal];
-        }
-        
+    
+    _layout = layout;
+    _separatorView.frame = layout.separatorFrame;
+    _profileView.frame = layout.profileFrame;
+    _contentLabel.frame = layout.textFrame;
+    _pictureView.frame = layout.pictureContainerFrame;
+    _videoView.frame = layout.videoContainerFrame;
+    _toolBar.frame = layout.toolBarFrame;
+    _hotCommentView.frame = layout.hotCommentViewFrame;
+    _longTextButton.frame = layout.longTextButtonFrame;
+    if (layout.isPicture || layout.isGifPicture || layout.isHtmlPicture) { // 图片
+        _pictureView.hidden = NO;
+        _videoView.hidden = YES;
+    }else if (layout.isVideo) { // 视频
+        _videoView.hidden = NO;
+        _pictureView.hidden = YES;
     }
+    
+    
+    _pictureView.layout = layout;
+    _videoView.layout = layout;
+    
+    _profileView.layout = layout;
+    _toolBar.layout = layout;
+    _hotCommentView.layout = layout;
+    _contentLabel.text = layout.topic.text;
+    if (layout.isHtmlPicture) {
+        _contentLabel.text = layout.topic.html.desc;
+    }
+    if (layout.isShowLongText) {
+        [_longTextButton setTitle:@"收起" forState:UIControlStateNormal];
+    }else {
+        [_longTextButton setTitle:@"全文" forState:UIControlStateNormal];
+    }
+    
+    
 }
 
 - (void)setLiked:(BOOL)like withAnimation:(BOOL)animation {

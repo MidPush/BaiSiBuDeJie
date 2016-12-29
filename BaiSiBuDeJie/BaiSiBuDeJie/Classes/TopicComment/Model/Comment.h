@@ -23,7 +23,8 @@
 @property (nonatomic, assign) NSInteger status;
 @property (nonatomic, copy) NSString *type;
 @property (nonatomic, strong) User *user;
-@property (nonatomic, strong) CommentImage *image;
+@property (nonatomic, strong) CommentImage *image; // 静态图片
+@property (nonatomic, strong) CommentImage *gif; // gif图片
 @property (nonatomic, strong) CommentAudio *audio;
 
 // 楼中楼
@@ -37,6 +38,7 @@
 //
 @property (nonatomic, assign) CGRect contentLabelFrame;
 @property (nonatomic, assign) CGRect contentImageViewFrame;
+@property (nonatomic, assign) CGRect gifLabelFrame;
 @property (nonatomic, assign) CGRect contentViewFrame;
 @property (nonatomic, assign) CGFloat commentCellHeight;
 @end

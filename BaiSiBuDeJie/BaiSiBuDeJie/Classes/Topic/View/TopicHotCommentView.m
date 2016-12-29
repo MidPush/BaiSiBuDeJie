@@ -18,7 +18,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = RGB(233, 233, 233);
+        self.backgroundColor = kBaseViewHighlightColor;
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor clearColor];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -33,11 +33,11 @@
 }
 
 - (void)setLayout:(TopicLayout *)layout {
-    if (_layout != layout) {
-        _layout = layout;
-        _tableView.frame = layout.hotCommentTableViewFrame;
-        [_tableView reloadData];
-    }
+    
+    _layout = layout;
+    _tableView.frame = layout.hotCommentTableViewFrame;
+    [_tableView reloadData];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

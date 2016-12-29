@@ -39,9 +39,8 @@
             NSMutableArray *contentLabelFrameArray = [NSMutableArray arrayWithCapacity:self.precmts.count];
             NSMutableArray *contentImageViewFrameArray = [NSMutableArray arrayWithCapacity:self.precmts.count];
             NSMutableArray *contentViewFrameArray = [NSMutableArray arrayWithCapacity:self.precmts.count];
-            CGFloat floorY = 0;
             for (Comment *comment in self.precmts) {
-                
+                CGFloat floorY = 0;
                 CGRect imageViewFrame = CGRectZero;
                 CGRect contentLabelFrame = CGRectZero;
                 if (comment.image) {
@@ -93,8 +92,9 @@
         }
         
         // 评论图片
-        if (self.image) {
+        if (self.image || self.gif) {
             _contentImageViewFrame = CGRectMake(0, y, 110, 110);
+            _gifLabelFrame = CGRectMake(110 - 30, 110 - 18, 30, 18);
             y += _contentImageViewFrame.size.height + commentCellMargin;
         }else {
             _contentImageViewFrame = CGRectZero;

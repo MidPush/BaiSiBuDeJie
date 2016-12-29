@@ -68,36 +68,36 @@
 }
 
 - (void)setLayout:(TopicLayout *)layout {
-    if (_layout != layout) {
-        _layout = layout;
+
+    _layout = layout;
+    
+    _avatarView.frame = layout.avatarFrame;
+    _avatarBadgeView.frame = layout.avatarBadgeFrame;
+    _nameLabel.frame = layout.nameFrame;
+    _vipIcon.frame = layout.vipIconFrame;
+    _timeLabel.frame = layout.timeFrame;
+    
+    
+    _nameLabel.text = layout.topic.user.name;
+    if (layout.topic.user.is_v) {
+        _avatarBadgeView.hidden = NO;
         
-        _avatarView.frame = layout.avatarFrame;
-        _avatarBadgeView.frame = layout.avatarBadgeFrame;
-        _nameLabel.frame = layout.nameFrame;
-        _vipIcon.frame = layout.vipIconFrame;
-        _timeLabel.frame = layout.timeFrame;
-        
-        
-        _nameLabel.text = layout.topic.user.name;
-        if (layout.topic.user.is_v) {
-            _avatarBadgeView.hidden = NO;
-            
-        }else {
-            _avatarBadgeView.hidden = YES;
-        }
-        
-        if (layout.topic.user.is_vip) {
-            _vipIcon.hidden = NO;
-            _nameLabel.textColor = kTopicCellUserNameVipColor;
-        }else {
-            _vipIcon.hidden = YES;
-            _nameLabel.textColor = kTopicCellUserNameNormalColor;
-        }
-        
-        [_avatarView sd_setImageWithURL:[NSURL URLWithString:layout.topic.user.header[0]] placeholderImage:[UIImage imageNamed:@"Profile_noneAvatarBg_65x65_"]];
-        
-        _timeLabel.text = layout.topic.passtime;
+    }else {
+        _avatarBadgeView.hidden = YES;
     }
+    
+    if (layout.topic.user.is_vip) {
+        _vipIcon.hidden = NO;
+        _nameLabel.textColor = kTopicCellUserNameVipColor;
+    }else {
+        _vipIcon.hidden = YES;
+        _nameLabel.textColor = kTopicCellUserNameNormalColor;
+    }
+    
+    [_avatarView sd_setImageWithURL:[NSURL URLWithString:layout.topic.user.header[0]] placeholderImage:[UIImage imageNamed:@"Profile_noneAvatarBg_65x65_"]];
+    
+    _timeLabel.text = layout.topic.passtime;
+    
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

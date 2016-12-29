@@ -71,47 +71,37 @@
 }
 
 - (void)setLayout:(TopicLayout *)layout {
-    if (_layout != layout) {
-        _layout = layout;
-        {
-            NSString *title = [self buttonTitleWithCount:layout.topic.up defaultTitle:@"顶"];
-            [_likeButton setTitle:title forState:UIControlStateNormal];
-            if(layout.topic.isLike) {
-                [_likeButton setTitleColor:kTopicCellToolBarButtonHighlightColor forState:UIControlStateNormal];
-                [_likeButton setImage:[UIImage imageNamed:@"mainCellDingClick_20x20_"] forState:UIControlStateNormal];
-            }else {
-                [_likeButton setTitleColor:kTopicCellToolBarButtonNormalColor forState:UIControlStateNormal];
-                [_likeButton setImage:[UIImage imageNamed:@"mainCellDing_20x20_"] forState:UIControlStateNormal];
-            }
-        }
-        {
-            NSString *title = [self buttonTitleWithCount:layout.topic.down defaultTitle:@"踩"];
-            [_dislikeButton setTitle:title forState:UIControlStateNormal];
-            if(layout.topic.isDislike) {
-                [_dislikeButton setTitleColor:kTopicCellToolBarButtonHighlightColor forState:UIControlStateNormal];
-                [_dislikeButton setImage:[UIImage imageNamed:@"mainCellCaiClick_20x20_"] forState:UIControlStateNormal];
-            }else {
-                [_dislikeButton setTitleColor:kTopicCellToolBarButtonNormalColor forState:UIControlStateNormal];
-                [_dislikeButton setImage:[UIImage imageNamed:@"mainCellCai_20x20_"] forState:UIControlStateNormal];
-            }
-        }
-        {
-            NSString *title = [self buttonTitleWithCount:layout.topic.forward defaultTitle:@"分享"];
-            [_shareButton setTitle:title forState:UIControlStateNormal];
-        }
-        {
-            NSString *title = [self buttonTitleWithCount:layout.topic.comment defaultTitle:@"评论"];
-            [_commentButton setTitle:title forState:UIControlStateNormal];
-        }
-        
-        if (layout.topic.isLike || layout.topic.isDislike) {
-            _likeButton.enabled = NO;
-            _dislikeButton.enabled = NO;
+    
+    _layout = layout;
+    {
+        NSString *title = [self buttonTitleWithCount:layout.topic.up defaultTitle:@"顶"];
+        [_likeButton setTitle:title forState:UIControlStateNormal];
+        if(layout.topic.isLike) {
+            [_likeButton setTitleColor:kTopicCellToolBarButtonHighlightColor forState:UIControlStateNormal];
+            [_likeButton setImage:[UIImage imageNamed:@"mainCellDingClick_20x20_"] forState:UIControlStateNormal];
         }else {
-            _likeButton.enabled = YES;
-            _dislikeButton.enabled = YES;
+            [_likeButton setTitleColor:kTopicCellToolBarButtonNormalColor forState:UIControlStateNormal];
+            [_likeButton setImage:[UIImage imageNamed:@"mainCellDing_20x20_"] forState:UIControlStateNormal];
         }
-        
+    }
+    {
+        NSString *title = [self buttonTitleWithCount:layout.topic.down defaultTitle:@"踩"];
+        [_dislikeButton setTitle:title forState:UIControlStateNormal];
+        if(layout.topic.isDislike) {
+            [_dislikeButton setTitleColor:kTopicCellToolBarButtonHighlightColor forState:UIControlStateNormal];
+            [_dislikeButton setImage:[UIImage imageNamed:@"mainCellCaiClick_20x20_"] forState:UIControlStateNormal];
+        }else {
+            [_dislikeButton setTitleColor:kTopicCellToolBarButtonNormalColor forState:UIControlStateNormal];
+            [_dislikeButton setImage:[UIImage imageNamed:@"mainCellCai_20x20_"] forState:UIControlStateNormal];
+        }
+    }
+    {
+        NSString *title = [self buttonTitleWithCount:layout.topic.forward defaultTitle:@"分享"];
+        [_shareButton setTitle:title forState:UIControlStateNormal];
+    }
+    {
+        NSString *title = [self buttonTitleWithCount:layout.topic.comment defaultTitle:@"评论"];
+        [_commentButton setTitle:title forState:UIControlStateNormal];
     }
 }
 
@@ -129,8 +119,6 @@
     }else {
         [_likeButton setTitle:[self buttonTitleWithCount:newCount defaultTitle:@"顶"] forState:UIControlStateNormal];
         if (like) {
-            _likeButton.enabled = NO;
-            _dislikeButton.enabled = NO;
             [_likeButton setTitleColor:kTopicCellToolBarButtonHighlightColor forState:UIControlStateNormal];
             [_likeButton setImage:[UIImage imageNamed:@"mainCellDingClick_20x20_"] forState:UIControlStateNormal];
         }
@@ -169,8 +157,6 @@
     }else {
         [_dislikeButton setTitle:[self buttonTitleWithCount:newCount defaultTitle:@"踩"] forState:UIControlStateNormal];
         if (dislike) {
-            _dislikeButton.enabled = NO;
-            _likeButton.enabled = NO;
             [_dislikeButton setTitleColor:kTopicCellToolBarButtonHighlightColor forState:UIControlStateNormal];
             [_dislikeButton setImage:[UIImage imageNamed:@"mainCellCaiClick_20x20_"] forState:UIControlStateNormal];
         }

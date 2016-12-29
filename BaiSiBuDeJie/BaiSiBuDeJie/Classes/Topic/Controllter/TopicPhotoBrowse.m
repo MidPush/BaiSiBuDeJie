@@ -69,6 +69,7 @@
 }
 
 - (void)setupButtons {
+    
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [backBtn setImage:[UIImage imageNamed:@"show_image_back_icon_30x30_"] forState:UIControlStateNormal];
     [backBtn sizeToFit];
@@ -81,14 +82,17 @@
     UIButton *saveButton = [self buttonWithImageName:nil title:@"保存" action:@selector(savePicture)];
     saveButton.frame = CGRectMake(15, y, saveButton.width + 2 * margin, height);
     
+    [self.view addSubview:backBtn];
+    [self.view addSubview:saveButton];
+    
+    if (!self.topic) return;
+    
     UIButton *commentButton = [self buttonWithImageName:@"mainCellComment_20x20_" title:[self buttonTitleWithCount:_topic.comment defaultTitle:@"评论"] action:@selector(sharePicture)];
     commentButton.frame = CGRectMake(self.view.width - commentButton.width - 2 * margin - 15, y, commentButton.width + 2 * margin, height);
     
     UIButton *shareButton = [self buttonWithImageName:@"showbig-share-icon_25x23_" title:[self buttonTitleWithCount:_topic.forward defaultTitle:@"分享"] action:@selector(pushCommentVC)];
     shareButton.frame = CGRectMake(commentButton.left - shareButton.width - 2 * margin - 15, y, shareButton.width + 2 * margin, height);
 
-    [self.view addSubview:backBtn];
-    [self.view addSubview:saveButton];
     [self.view addSubview:commentButton];
     [self.view addSubview:shareButton];
 }

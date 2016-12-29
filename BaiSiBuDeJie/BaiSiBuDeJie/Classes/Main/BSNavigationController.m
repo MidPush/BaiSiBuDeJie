@@ -8,7 +8,7 @@
 
 #import "BSNavigationController.h"
 
-@interface BSNavigationController ()
+@interface BSNavigationController ()<UIGestureRecognizerDelegate>
 
 @end
 
@@ -21,8 +21,13 @@
                                                NSForegroundColorAttributeName:[UIColor whiteColor]
                                               };
     self.navigationBar.translucent = NO;
-    UIColor *color = RGB(244, 14, 68);
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"bubble_Color_5_260x60_@1x"] forBarMetrics:UIBarMetricsDefault];
+    
+    // 全屏返回手势
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self.interactivePopGestureRecognizer.delegate action:@selector(handleNavigationTransition:)];
+    pan.delegate= self;
+    [self.view addGestureRecognizer:pan];
+    self.interactivePopGestureRecognizer.enabled = NO;
     
 }
 
@@ -49,6 +54,19 @@
     [self popViewControllerAnimated:YES];
 }
 
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return self.childViewControllers.count > 1;
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    CGPoint point = [gestureRecognizer locationInView:self.view];
+    
+    return [(UIPanGestureRecognizer *)gestureRecognizer velocityInView:self.view].x > 0;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
+}
 
 
 @end

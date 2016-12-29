@@ -18,6 +18,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
+        
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:self.tableViewStyle];
         _tableView.backgroundColor = [UIColor clearColor];
         _tableView.delegate = self;

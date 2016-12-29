@@ -63,74 +63,73 @@
 }
 
 - (void)setLayout:(TopicLayout *)layout {
-    if (_layout != layout) {
-        _layout = layout;
-        
-        _readCountLabel.frame = layout.readCountLabelFrame;
-        _placeholder.frame = layout.placeholderFrame;
-        _imageView.frame = layout.imageViewFrame;
-        _seeBigPictureButton.frame = layout.seeBigPictureBtnFrame;
-        
-        
-        if (_layout.isHtmlPicture) {
-            _readCountLabel.hidden = NO;
-             _readCountLabel.text = [NSString stringWithFormat:@"%ld阅读",layout.topic.html.playfcount];
+    
+    _layout = layout;
+    
+    _readCountLabel.frame = layout.readCountLabelFrame;
+    _placeholder.frame = layout.placeholderFrame;
+    _imageView.frame = layout.imageViewFrame;
+    _seeBigPictureButton.frame = layout.seeBigPictureBtnFrame;
+    
+    
+    if (_layout.isHtmlPicture) {
+        _readCountLabel.hidden = NO;
+         _readCountLabel.text = [NSString stringWithFormat:@"%ld阅读",layout.topic.html.playfcount];
+        _seeBigPictureButton.hidden = NO;
+        _seeBigPictureButton.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+        [_seeBigPictureButton setTitle:@"阅读原文" forState:UIControlStateNormal];
+        [_seeBigPictureButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_seeBigPictureButton setImage:[UIImage imageNamed:@"link_post_icon_15x15_"] forState:UIControlStateNormal];
+        [_seeBigPictureButton setBackgroundImage:nil forState:UIControlStateNormal];
+    }else {
+        _readCountLabel.hidden = YES;
+        if (_layout.isLongPicture) {
             _seeBigPictureButton.hidden = NO;
-            _seeBigPictureButton.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
-            [_seeBigPictureButton setTitle:@"阅读原文" forState:UIControlStateNormal];
+            _seeBigPictureButton.backgroundColor = [UIColor clearColor];
+            [_seeBigPictureButton setTitle:@"点击查看全图" forState:UIControlStateNormal];
             [_seeBigPictureButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            [_seeBigPictureButton setImage:[UIImage imageNamed:@"link_post_icon_15x15_"] forState:UIControlStateNormal];
-            [_seeBigPictureButton setBackgroundImage:nil forState:UIControlStateNormal];
+            [_seeBigPictureButton setImage:[UIImage imageNamed:@"see-big-picture_19x19_"] forState:UIControlStateNormal];
+            [_seeBigPictureButton setBackgroundImage:[UIImage imageNamed:@"see-big-picture-background_285x43_"] forState:UIControlStateNormal];
         }else {
-            _readCountLabel.hidden = YES;
-            if (_layout.isLongPicture) {
-                _seeBigPictureButton.hidden = NO;
-                _seeBigPictureButton.backgroundColor = [UIColor clearColor];
-                [_seeBigPictureButton setTitle:@"点击查看全图" forState:UIControlStateNormal];
-                [_seeBigPictureButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-                [_seeBigPictureButton setImage:[UIImage imageNamed:@"see-big-picture_19x19_"] forState:UIControlStateNormal];
-                [_seeBigPictureButton setBackgroundImage:[UIImage imageNamed:@"see-big-picture-background_285x43_"] forState:UIControlStateNormal];
-            }else {
-                _seeBigPictureButton.hidden = YES;
-            }
+            _seeBigPictureButton.hidden = YES;
         }
-        
-        if (layout.isGifPicture) {
-            _gifIcon.hidden = NO;
-        }else {
-            _gifIcon.hidden = YES;
-        }
-        
-        NSString *urlStr = nil;
-        if (layout.isGifPicture) {
-            urlStr = layout.topic.gif.images[0];
-        }else if(layout.isPicture) {
-            urlStr = layout.topic.image.download_url[0];
-        }else if (layout.isHtmlPicture) {
-            urlStr = layout.topic.html.thumbnail[0];
-           
-        }
-        
-        _imageView.userInteractionEnabled = NO;
-        [_imageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            if (image) {
-                _imageView.userInteractionEnabled = YES;
-                
-                if (layout.isLongPicture) {
-                    CGFloat width = image.size.width;
-                    CGFloat height = image.size.height;
-                    _imageView.contentMode = UIViewContentModeScaleToFill;
-                    _imageView.layer.contentsRect = CGRectMake(0, 0, 1, (float)width / height);
-                    
-                }else {
-                    _imageView.contentMode = UIViewContentModeScaleAspectFill;
-                    _imageView.layer.contentsRect = CGRectMake(0, 0, 1, 1);
-                }
-            }
-            
-        }];
-        
     }
+    
+    if (layout.isGifPicture) {
+        _gifIcon.hidden = NO;
+    }else {
+        _gifIcon.hidden = YES;
+    }
+    
+    NSString *urlStr = nil;
+    if (layout.isGifPicture) {
+        urlStr = layout.topic.gif.images[0];
+    }else if(layout.isPicture) {
+        urlStr = layout.topic.image.download_url[0];
+    }else if (layout.isHtmlPicture) {
+        urlStr = layout.topic.html.thumbnail[0];
+       
+    }
+    
+    _imageView.userInteractionEnabled = NO;
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (image) {
+            _imageView.userInteractionEnabled = YES;
+            
+            if (layout.isLongPicture) {
+                CGFloat width = image.size.width;
+                CGFloat height = image.size.height;
+                _imageView.contentMode = UIViewContentModeScaleToFill;
+                _imageView.layer.contentsRect = CGRectMake(0, 0, 1, (float)width / height);
+                
+            }else {
+                _imageView.contentMode = UIViewContentModeScaleAspectFill;
+                _imageView.layer.contentsRect = CGRectMake(0, 0, 1, 1);
+            }
+        }
+        
+    }];
+
 }
 
 

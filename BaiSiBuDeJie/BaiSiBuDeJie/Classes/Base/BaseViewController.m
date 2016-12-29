@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = RGB(233, 233, 233);
+    self.view.backgroundColor = kBaseViewHighlightColor;
     self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 

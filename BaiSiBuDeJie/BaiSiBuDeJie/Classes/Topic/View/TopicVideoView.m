@@ -9,6 +9,7 @@
 #import "TopicVideoView.h"
 #import "TopicLayout.h"
 #import "UIImageView+WebCache.h"
+#import "BSVideoBrowse.h"
 
 @interface TopicVideoView ()
 @property (nonatomic, strong) UIImageView *imageView;
@@ -34,6 +35,7 @@
         _playButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_playButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_playButton setImage:[UIImage imageNamed:@"video-play_71x71_"] forState:UIControlStateNormal];
+        [_playButton addTarget:self action:@selector(playButtonClick) forControlEvents:UIControlEventTouchUpInside];
         
         _videoBottomCover = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_time_bar_shadow_50x40_"]];
         
@@ -57,21 +59,26 @@
 }
 
 - (void)setLayout:(TopicLayout *)layout {
-    if (_layout != layout) {
-        _layout = layout;
-        
-        _placeholder.frame = layout.videoPlaceholderFrame;
-        _imageView.frame = layout.videoImageViewFrame;
-        _playButton.frame = layout.playButtonFrame;
-        _videoBottomCover.frame = layout.videoBottomCoverFrame;
-        _videoPlayCountLabel.frame = layout.videoPlayCountLabelFrame;
-        _videoTimeLabel.frame = layout.videoTimeLabelFrame;
-        
-        _videoPlayCountLabel.text = layout.videoPlayCountText;
-        _videoTimeLabel.text = layout.videoTimeText;
-        
-        [_imageView sd_setImageWithURL:[NSURL URLWithString:layout.topic.video.thumbnail[0]] placeholderImage:nil];
-    }
+    
+    _layout = layout;
+    
+    _placeholder.frame = layout.videoPlaceholderFrame;
+    _imageView.frame = layout.videoImageViewFrame;
+    _playButton.frame = layout.playButtonFrame;
+    _videoBottomCover.frame = layout.videoBottomCoverFrame;
+    _videoPlayCountLabel.frame = layout.videoPlayCountLabelFrame;
+    _videoTimeLabel.frame = layout.videoTimeLabelFrame;
+    
+    _videoPlayCountLabel.text = layout.videoPlayCountText;
+    _videoTimeLabel.text = layout.videoTimeText;
+    
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:layout.topic.video.thumbnail[0]] placeholderImage:nil];
+    
+}
+
+- (void)playButtonClick {
+    BSVideoBrowse *videoBrowse = [[BSVideoBrowse alloc] initWithTopicLayout:_layout];
+    [videoBrowse showFromView:self];
 }
 
 

@@ -46,7 +46,7 @@
         //
         _contentImageView.frame = contentImageViewFrame;
         if (comment.image) {
-            [_contentImageView sd_setImageWithURL:[NSURL URLWithString:comment.image.thumbnail[0]] placeholderImage:RGB(233, 233, 233).pureColorImage];
+            [_contentImageView sd_setImageWithURL:[NSURL URLWithString:comment.image.thumbnail[0]] placeholderImage:kBaseViewHighlightColor.pureColorImage];
         }
     
 }

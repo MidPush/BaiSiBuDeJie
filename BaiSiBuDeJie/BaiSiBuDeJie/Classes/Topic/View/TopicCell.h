@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TopicVideoView.h"
 
 @class TopicLayout, TopicCell, User;
 @protocol TopicCellDelegate <NSObject>

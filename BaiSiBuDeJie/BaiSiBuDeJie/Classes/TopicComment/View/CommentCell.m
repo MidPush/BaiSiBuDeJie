@@ -86,6 +86,21 @@
     }
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    self.backgroundColor = kBaseViewHighlightColor;
+    [super touchesBegan:touches withEvent:event];
+}
+
+- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    self.backgroundColor = [UIColor whiteColor];
+    [super touchesCancelled:touches withEvent:event];
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self performSelector:@selector(setBackgroundColor:) withObject:[UIColor whiteColor] afterDelay:0.2];
+    [super touchesEnded:touches withEvent:event];
+}
+
 
 
 @end

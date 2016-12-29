@@ -11,4 +11,5 @@
 @class TopicLayout;
 @interface CommentViewController : BaseRefreshViewController
 @property (nonatomic, strong) TopicLayout *layout;
+@property (nonatomic, assign, getter=isNeedContentOffset) BOOL needContentOffset;
 @end

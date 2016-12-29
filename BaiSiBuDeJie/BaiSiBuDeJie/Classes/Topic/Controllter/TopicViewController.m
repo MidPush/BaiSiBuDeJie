@@ -46,7 +46,6 @@
     if (self.viewControllerType == ViewControllerTypeEssence) {
         [ApiEngine getEssenceTopic:self.essencetopicType lastTopicPassTimeStamp:[NSString stringWithFormat:@"%ld",timeStamp] result:^(BOOL success, NSArray *data) {
             if (success) {
-                NSLog(@"%@",[NSThread currentThread]);
                 NSMutableArray *array = [NSMutableArray array];
                 if (self.datas.count == 0) {
                     array = [data mutableCopy];
@@ -81,7 +80,6 @@
     }else if (self.viewControllerType == ViewControllerTypeNew) {
         [ApiEngine getNewTopic:self.newTopicType lastTopicPassTimeStamp:[NSString stringWithFormat:@"%ld",timeStamp] result:^(BOOL success, NSArray *data) {
             if (success) {
-                NSLog(@"%@",[NSThread currentThread]);
                 NSMutableArray *array = [NSMutableArray array];
                 if (self.datas.count == 0) {
                     array = [data mutableCopy];
@@ -171,6 +169,7 @@
     TopicLayout *layout = self.datas[indexPath.row];
     CommentViewController *vc = [[CommentViewController alloc] init];
     vc.layout = layout;
+    vc.needContentOffset = NO;
     TopicCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     _tappedTopicell = cell;
     [self.parentViewController.parentViewController.navigationController pushViewController:vc animated:YES];
@@ -191,15 +190,14 @@
 
 // 点赞
 - (void)onClickLikeWithCell:(TopicCell *)cell {
-    Topic *topic = cell.layout.topic;
-    [cell setLiked:!topic.isLike withAnimation:YES];
+    if(cell.layout.topic.isLike || cell.layout.topic.isDislike) return;
+    [cell setLiked:YES withAnimation:YES];
 }
 
 // 踩
 - (void)onClickDislikeWithCell:(TopicCell *)cell {
-    Topic *topic = cell.layout.topic;
-    [cell setDisliked:!topic.isDislike withAnimation:YES];
-    
+    if(cell.layout.topic.isLike || cell.layout.topic.isDislike) return;
+    [cell setDisliked:YES withAnimation:YES];
 }
 
 // 分享
@@ -211,6 +209,7 @@
 - (void)onClickCommentWithCell:(TopicCell *)cell {
     CommentViewController *vc = [[CommentViewController alloc] init];
     vc.layout = cell.layout;
+    vc.needContentOffset = YES;
     _tappedTopicell = cell;
     [self.parentViewController.parentViewController.navigationController pushViewController:vc animated:YES];
 }
@@ -219,6 +218,7 @@
 - (void)onClickCommentViewWithCell:(TopicCell *)cell {
     CommentViewController *vc = [[CommentViewController alloc] init];
     vc.layout = cell.layout;
+    vc.needContentOffset = YES;
     _tappedTopicell = cell;
     [self.parentViewController.parentViewController.navigationController pushViewController:vc animated:YES];
 }
@@ -241,7 +241,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (_tappedTopicell) {
-        [self.tableView reloadRowsAtIndexPaths:@[_tappedTopicell.indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView reloadRowsAtIndexPaths:@[_tappedTopicell.indexPath] withRowAnimation:UITableViewRowAnimationNone];
     }
 }
 

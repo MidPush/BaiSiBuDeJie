@@ -15,6 +15,9 @@
 #define RGB(r,g,b) [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:1.0]
 #define RGBA(r,g,b,a) [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:a]
 
+// BaseViewHighlightColor
+#define kBaseViewHighlightColor RGB(242,242,242)
+
 // TopicCell
 #define kTopicCellAvatarWidth 35 // 头像宽
 #define kTopicCellCellMargin 12 //帖子cell间距
