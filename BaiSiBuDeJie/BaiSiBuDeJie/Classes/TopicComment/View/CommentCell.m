@@ -29,14 +29,26 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    _avatarView.cornerRadius = _avatarView.width * 0.5;
-    _vipIcon.hidden = YES;
+    
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    _avatarView.cornerRadius = _avatarView.width * 0.5;
+    _avatarView.userInteractionEnabled = YES;
+    _vipIcon.hidden = YES;
+    
+    
+    [_avatarView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickUser)]];
+    [_usernameLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickUser)]];
 }
 
 
 - (IBAction)onLikeButtonClick:(UIButton *)sender {
     
+}
+
+- (void)onClickUser {
+    if ([self.delegate respondsToSelector:@selector(onClickUserNameOrAvatar:)]) {
+        [self.delegate onClickUserNameOrAvatar:self.comment];
+    }
 }
 
 - (void)setComment:(Comment *)comment {

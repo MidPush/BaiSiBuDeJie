@@ -14,6 +14,7 @@
 #import "TopicGifPicture.h"
 #import "TopicTopComment.h"
 #import "TopicHtml.h"
+#import "TopicVoice.h"
 
 @interface Topic : NSObject
 @property (nonatomic, copy) NSString *topicId;
@@ -24,11 +25,12 @@
 @property (nonatomic, strong) NSArray <TopicTag *> *tags;
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, strong) User *user;
-@property (nonatomic, strong) TopicVideo *video;
-@property (nonatomic, strong) TopicPicture *image;
-@property (nonatomic, strong) TopicGifPicture *gif;
-@property (nonatomic, strong) TopicHtml *html;
-@property (nonatomic, strong) NSArray <TopicTopComment *> *top_comments;
+@property (nonatomic, strong) TopicVideo *video; // 视频帖子
+@property (nonatomic, strong) TopicPicture *image; // 静态图片帖子
+@property (nonatomic, strong) TopicGifPicture *gif; // gif图片帖子
+@property (nonatomic, strong) TopicHtml *html; // html帖子
+@property (nonatomic, strong) TopicVoice *audio; // 声音帖子
+@property (nonatomic, strong) NSArray <TopicTopComment *> *top_comments; // 热门评论
 
 @property (nonatomic, assign) NSInteger up; // 顶
 @property (nonatomic, assign) NSInteger down; // 踩

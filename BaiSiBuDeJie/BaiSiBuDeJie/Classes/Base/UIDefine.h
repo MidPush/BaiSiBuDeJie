@@ -17,6 +17,8 @@
 
 // BaseViewHighlightColor
 #define kBaseViewHighlightColor RGB(242,242,242)
+// 主题颜色
+#define kThemeColor RGB(244, 14, 68)
 
 // TopicCell
 #define kTopicCellAvatarWidth 35 // 头像宽

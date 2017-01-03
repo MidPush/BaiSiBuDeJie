@@ -64,7 +64,7 @@
         [tabBarItem setImage:[UIImage imageNamed:images[index]] forState:UIControlStateNormal];
         [tabBarItem setImage:[UIImage imageNamed:selectedImages[index]] forState:UIControlStateSelected];
         [tabBarItem setTitleColor:RGB(128, 128, 128) forState:UIControlStateNormal];
-        [tabBarItem setTitleColor:RGB(244, 14, 68) forState:UIControlStateSelected];
+        [tabBarItem setTitleColor:kThemeColor forState:UIControlStateSelected];
         [tabBarItem addTarget:self action:@selector(onButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         if (index < 2) {
             tabBarItem.frame = CGRectMake(index * tabBarItemWidth, 0, tabBarItemWidth, tabBarItemHeight);

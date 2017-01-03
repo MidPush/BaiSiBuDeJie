@@ -14,7 +14,7 @@
 @interface TopicVideoView ()
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIImageView *placeholder;
-@property (nonatomic, strong) UIButton *playButton;
+@property (nonatomic, strong) UIButton *playVideoButton;
 @property (nonatomic, strong) UIImageView *videoBottomCover;
 @property (nonatomic, strong) UILabel *videoPlayCountLabel; // 播放次数
 @property (nonatomic, strong) UILabel *videoTimeLabel; // 视频时长
@@ -32,10 +32,10 @@
 //        _imageView.contentMode = UIViewContentModeScaleAspectFill;
 //        _imageView.clipsToBounds = YES;
         
-        _playButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_playButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_playButton setImage:[UIImage imageNamed:@"video-play_71x71_"] forState:UIControlStateNormal];
-        [_playButton addTarget:self action:@selector(playButtonClick) forControlEvents:UIControlEventTouchUpInside];
+        _playVideoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_playVideoButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_playVideoButton setImage:[UIImage imageNamed:@"video-play_71x71_"] forState:UIControlStateNormal];
+        [_playVideoButton addTarget:self action:@selector(playVideoButtonClick) forControlEvents:UIControlEventTouchUpInside];
         
         _videoBottomCover = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_time_bar_shadow_50x40_"]];
         
@@ -50,7 +50,7 @@
         
         [self addSubview:_placeholder];
         [self addSubview:_imageView];
-        [self addSubview:_playButton];
+        [self addSubview:_playVideoButton];
         [self addSubview:_videoBottomCover];
         [self addSubview:_videoPlayCountLabel];
         [self addSubview:_videoTimeLabel];
@@ -64,7 +64,7 @@
     
     _placeholder.frame = layout.videoPlaceholderFrame;
     _imageView.frame = layout.videoImageViewFrame;
-    _playButton.frame = layout.playButtonFrame;
+    _playVideoButton.frame = layout.playVideoButtonFrame;
     _videoBottomCover.frame = layout.videoBottomCoverFrame;
     _videoPlayCountLabel.frame = layout.videoPlayCountLabelFrame;
     _videoTimeLabel.frame = layout.videoTimeLabelFrame;
@@ -76,7 +76,7 @@
     
 }
 
-- (void)playButtonClick {
+- (void)playVideoButtonClick {
     BSVideoBrowse *videoBrowse = [[BSVideoBrowse alloc] initWithTopicLayout:_layout];
     [videoBrowse showFromView:self];
 }

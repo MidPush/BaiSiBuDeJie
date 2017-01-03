@@ -50,7 +50,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     CGFloat adjustX = 10;
-    CGFloat adjustY = 9;
+    CGFloat adjustY = 8;
     CGSize textSize = [_placeholderLabel.text boundingRectWithSize:CGSizeMake(self.width - 2 * adjustX, self.height - 2 * adjustY) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:_placeholderLabel.font} context:nil].size;
     _placeholderLabel.frame = CGRectMake(adjustX, adjustY, textSize.width, textSize.height);
 }

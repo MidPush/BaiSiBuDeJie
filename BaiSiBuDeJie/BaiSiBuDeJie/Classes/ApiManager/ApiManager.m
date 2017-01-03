@@ -17,8 +17,9 @@
     dispatch_once(&onceToken, ^{
         manager = [AFHTTPSessionManager manager];
         manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/plain", @"text/html", nil];
-        AFJSONResponseSerializer *resp = (AFJSONResponseSerializer *)manager.responseSerializer;
-        resp.removesKeysWithNullValues = YES;
+//        AFJSONResponseSerializer *resp = (AFJSONResponseSerializer *)manager.responseSerializer;
+//        resp.removesKeysWithNullValues = YES;
+        
     });
     return manager;
 }

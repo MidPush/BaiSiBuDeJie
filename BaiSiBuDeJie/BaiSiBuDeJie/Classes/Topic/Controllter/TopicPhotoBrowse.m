@@ -76,7 +76,7 @@
     backBtn.frame = CGRectMake(15, 40, backBtn.frame.size.width, backBtn.frame.size.height);
     [backBtn addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
     
-    CGFloat height = 35;
+    CGFloat height = 30;
     CGFloat margin = 10;
     CGFloat y = self.view.frame.size.height - height - 15;
     UIButton *saveButton = [self buttonWithImageName:nil title:@"保存" action:@selector(savePicture)];

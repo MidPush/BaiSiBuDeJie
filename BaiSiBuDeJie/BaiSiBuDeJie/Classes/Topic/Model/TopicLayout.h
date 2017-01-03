@@ -16,11 +16,13 @@
 @property (nonatomic, assign) BOOL isPicture; // 图片
 @property (nonatomic, assign) BOOL isLongPicture; // 长图
 @property (nonatomic, assign) BOOL isVideo; // 视频
+@property (nonatomic, assign) BOOL isVoice; // 声音
 @property (nonatomic, assign) BOOL isGifPicture; // Gif图片
 @property (nonatomic, assign) BOOL isHtmlPicture; // Html
 @property (nonatomic, assign) BOOL hasTopComment; // 热门评论
 @property (nonatomic, assign) BOOL isLongText; // 长文
 @property (nonatomic, assign) BOOL isShowLongText; // 是否已经显示完整文字
+@property (nonatomic, assign) BOOL isPlaying; // 是否正在播放mp3
 
 // 分隔线
 @property (nonatomic, assign) CGRect separatorFrame;
@@ -53,13 +55,25 @@
 @property (nonatomic, assign) CGRect videoContainerFrame;
 @property (nonatomic, assign) CGRect videoImageViewFrame; // 视频图片Frame
 @property (nonatomic, assign) CGRect videoPlaceholderFrame;
-@property (nonatomic, assign) CGRect playButtonFrame;
+@property (nonatomic, assign) CGRect playVideoButtonFrame;
 
 @property (nonatomic, assign) CGRect videoBottomCoverFrame;
 @property (nonatomic, assign) CGRect videoPlayCountLabelFrame;
 @property (nonatomic, assign) CGRect videoTimeLabelFrame;
 @property (nonatomic, copy) NSString *videoPlayCountText;
 @property (nonatomic, copy) NSString *videoTimeText;
+
+// 声音
+@property (nonatomic, assign) CGRect voiceContainerFrame;
+@property (nonatomic, assign) CGRect voiceImageViewFrame; // 声音图片Frame
+@property (nonatomic, assign) CGRect voicePlaceholderFrame;
+@property (nonatomic, assign) CGRect playVoiceButtonFrame;
+
+@property (nonatomic, assign) CGRect voiceBottomCoverFrame;
+@property (nonatomic, assign) CGRect voicePlayCountLabelFrame;
+@property (nonatomic, assign) CGRect voiceTimeLabelFrame;
+@property (nonatomic, copy) NSString *voicePlayCountText;
+@property (nonatomic, copy) NSString *voiceTimeText;
 
 // 工具栏
 @property (nonatomic, assign) CGRect toolBarFrame;

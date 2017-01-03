@@ -139,8 +139,7 @@
     browse.fromView = (UIImageView *)tap.view;
     
     UITabBarController *rootVc = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-    UINavigationController *nav = rootVc.childViewControllers[0];
-    [nav presentViewController:[[UINavigationController alloc] initWithRootViewController:browse] animated:NO completion:^{
+    [rootVc presentViewController:[[UINavigationController alloc] initWithRootViewController:browse] animated:NO completion:^{
         
     }];
     

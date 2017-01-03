@@ -55,10 +55,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMU-gX-HBj">
-                        <rect key="frame" x="13.5" y="55" width="28" height="12"/>
+                        <rect key="frame" x="12.5" y="55" width="30" height="12"/>
                         <color key="backgroundColor" red="0.4307772510180245" green="0.53607804930754843" blue="0.79336939102564097" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="28" id="JZa-V4-Bc5"/>
+                            <constraint firstAttribute="width" constant="30" id="JZa-V4-Bc5"/>
                             <constraint firstAttribute="height" constant="12" id="kxl-88-zGd"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>

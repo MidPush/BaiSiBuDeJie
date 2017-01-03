@@ -20,8 +20,8 @@
                                                NSFontAttributeName:[UIFont boldSystemFontOfSize:17],
                                                NSForegroundColorAttributeName:[UIColor whiteColor]
                                               };
-    self.navigationBar.translucent = NO;
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"bubble_Color_5_260x60_@1x"] forBarMetrics:UIBarMetricsDefault];
+    self.navigationBar.shadowImage = [[UIImage alloc] init];
     
     // 全屏返回手势
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self.interactivePopGestureRecognizer.delegate action:@selector(handleNavigationTransition:)];
@@ -30,6 +30,7 @@
     self.interactivePopGestureRecognizer.enabled = NO;
     
 }
+
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (self.childViewControllers.count > 0) {
@@ -59,9 +60,12 @@
 }
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
-    CGPoint point = [gestureRecognizer locationInView:self.view];
+    CGPoint touchPoint = [gestureRecognizer locationInView:self.view];
+    CGPoint translationPoint = [(UIPanGestureRecognizer *)gestureRecognizer translationInView:self.view];
     
-    return [(UIPanGestureRecognizer *)gestureRecognizer velocityInView:self.view].x > 0;
+    NSLog(@"touchPoint - %@",NSStringFromCGPoint(touchPoint));
+    NSLog(@"translationPoint - %@",NSStringFromCGPoint(translationPoint));
+    return translationPoint.x > 0 && translationPoint.y == 0;
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {

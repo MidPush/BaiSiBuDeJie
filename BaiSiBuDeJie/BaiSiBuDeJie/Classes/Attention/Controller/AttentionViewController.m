@@ -7,8 +7,12 @@
 //
 
 #import "AttentionViewController.h"
+#import "RecommandViewController.h"
+#import "UIView+Xib.h"
+#import "VisitorView.h"
+#import "LoginRegisterViewController.h"
 
-@interface AttentionViewController ()
+@interface AttentionViewController ()<VisitorViewDelegate>
 
 @end
 
@@ -18,6 +22,8 @@
     [super viewDidLoad];
     
     [self setupNavigationBar];
+    
+    [self setupVisitorView];
 }
 
 - (void)doubleTapBarItem:(UIButton *)barItem {
@@ -34,13 +40,33 @@
     
 }
 
+- (void)setupVisitorView {
+    VisitorView *visitorView = [VisitorView viewFromXib];
+    visitorView.frame = CGRectMake(0, 0, self.view.width, self.view.height);
+    visitorView.delegate = self;
+    [self.view addSubview:visitorView];
+}
+
 
 - (void)leftItemClick {
-    
+    RecommandViewController *vc = [[RecommandViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)rightItemClick {
     
+}
+
+- (void)doLoginAction {
+    LoginRegisterViewController *vc = [[LoginRegisterViewController alloc] initWithNibName:@"LoginRegisterViewController" bundle:nil];
+    vc.showType = ShowTypeLogin;
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)doRegisterAction {
+    LoginRegisterViewController *vc = [[LoginRegisterViewController alloc] initWithNibName:@"LoginRegisterViewController" bundle:nil];
+    vc.showType = ShowTypeRigister;
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 @end

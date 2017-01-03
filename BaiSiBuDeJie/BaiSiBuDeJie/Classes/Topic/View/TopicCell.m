@@ -12,6 +12,7 @@
 #import "TopicVideoView.h"
 #import "TopicToolBar.h"
 #import "TopicHotCommentView.h"
+#import "TopicVoiceView.h"
 #import "UIImageView+WebCache.h"
 
 #import "TopicLayout.h"
@@ -26,6 +27,7 @@
 @property (nonatomic, strong) TopicVideoView *videoView;
 @property (nonatomic, strong) TopicToolBar *toolBar;
 @property (nonatomic, strong) TopicHotCommentView *hotCommentView;
+@property (nonatomic, strong) TopicVoiceView *voiceView;
 @end
 
 @implementation TopicCell
@@ -68,6 +70,10 @@
         _videoView = [[TopicVideoView alloc] init];
         [self.contentView addSubview:_videoView];
         
+        // 声音
+        _voiceView = [[TopicVoiceView alloc] init];
+        [self.contentView addSubview:_voiceView];
+        
         // 工具栏
         _toolBar = [[TopicToolBar alloc] init];
         [self.contentView addSubview:_toolBar];
@@ -95,6 +101,7 @@
     _contentLabel.frame = layout.textFrame;
     _pictureView.frame = layout.pictureContainerFrame;
     _videoView.frame = layout.videoContainerFrame;
+    _voiceView.frame = layout.voiceContainerFrame;
     _toolBar.frame = layout.toolBarFrame;
     _hotCommentView.frame = layout.hotCommentViewFrame;
     _longTextButton.frame = layout.longTextButtonFrame;
@@ -109,6 +116,7 @@
     
     _pictureView.layout = layout;
     _videoView.layout = layout;
+    _voiceView.layout = layout;
     
     _profileView.layout = layout;
     _toolBar.layout = layout;

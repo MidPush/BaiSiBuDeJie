@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @class Comment;
+@protocol CommentCellDelegate <NSObject>
+
+- (void)onClickUserNameOrAvatar:(Comment *)comment;
+
+@end
 @interface CommentCell : UITableViewCell
 @property (nonatomic, strong) Comment *comment;
-
+@property (nonatomic, weak) id <CommentCellDelegate> delegate;
 @end

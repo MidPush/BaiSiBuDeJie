@@ -46,5 +46,11 @@ typedef void (^DataActionResult)(BOOL success, id data);
 /// 获取帖子评论详情数据
 + (void)getTopicCommentList:(NSString *)topicId result:(DataActionResult)reslut;
 
+/// 获取个人主页数据
++ (void)getUserProfileInfo:(NSString *)userId result:(DataActionResult)reslut;
+
+/// 获取推荐关注分类数据
++ (void)getRecommandCategory:(NSString *)uid result:(DataActionResult)reslut;
+
 
 @end

@@ -14,8 +14,9 @@
 #import "CommentGroup.h"
 #import "BSActionSheet.h"
 #import "CommentToolView.h"
+#import "UserInfoViewController.h"
 
-@interface CommentViewController ()<TopicCellDelegate, CommentToolViewDelegate>
+@interface CommentViewController ()<TopicCellDelegate, CommentToolViewDelegate, CommentCellDelegate>
 @property (nonatomic, strong) CommentGroup *group;
 @property (nonatomic, strong) CommentToolView *toolView;
 @end
@@ -115,6 +116,7 @@ static NSString *identifier = @"CommentCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    cell.delegate = self;
     if (indexPath.section == 0) {
         Comment *comment = self.group.hot[indexPath.row];
         cell.comment = comment;
@@ -200,6 +202,26 @@ static NSString *identifier = @"CommentCell";
 // 分享
 - (void)onClickShareWithCell:(TopicCell *)cell {
     [ShareView show];
+}
+
+// 点击发帖人的头像或昵称
+- (void)onClickUserWithCell:(TopicCell *)cell {
+    UserInfoViewController *vc = [[UserInfoViewController alloc] init];
+    vc.user = cell.layout.topic.user;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+// 点击评论用户的头像或昵称
+- (void)onClickUserNameOrAvatar:(Comment *)comment {
+    UserInfoViewController *vc = [[UserInfoViewController alloc] init];
+    vc.user = comment.user;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+// 点击全文按钮
+- (void)onClickLongTextButtonWithCell:(TopicCell *)cell {
+    [cell.layout reloadLayoutForLongText];
+    [self.tableView reloadRowsAtIndexPaths:@[cell.indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)commentToolViewIsEditable:(BOOL)isEditable {

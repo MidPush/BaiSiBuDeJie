@@ -32,12 +32,18 @@
     if (_isShowLongText) {
         _textFrame.size.height += height;
         _longTextButtonFrame.origin.y += height;
+        if (_isVoice) {
+            _voiceContainerFrame.origin.y += height; // 声音帖子文字也存在长文字，其他帖子暂没发现
+        }
         _toolBarFrame.origin.y += height;
         _hotCommentViewFrame.origin.y += height;
         _topicCellHeight += height;
     }else {
         _textFrame.size.height -= height;
         _longTextButtonFrame.origin.y -= height;
+        if (_isVoice) {
+            _voiceContainerFrame.origin.y -= height; // 声音帖子文字也存在长文字，其他帖子暂没发现
+        }
         _toolBarFrame.origin.y -= height;
         _hotCommentViewFrame.origin.y -= height;
         _topicCellHeight -= height;
@@ -95,8 +101,8 @@
     
     // 图片
     if (_topic.image || _topic.gif || _topic.html) {
-        
         self.isVideo = NO;
+        self.isVoice = NO;
         NSInteger imageWidth = 0;
         NSInteger imageHeight = 0;
         if (_topic.image) {
@@ -149,6 +155,7 @@
         self.isPicture = NO;
         self.isGifPicture = NO;
         self.isLongPicture = NO;
+        self.isVoice = NO;
         CGFloat videoMaxWidth = kScreenWidth - 2 * kTopicCellCellMargin;
         NSInteger videoWidth = _topic.video.width;
         NSInteger videoHeight = _topic.video.height;
@@ -162,7 +169,7 @@
         _videoContainerFrame = CGRectMake(kTopicCellCellMargin, CGRectGetMaxY(_textFrame) + kTopicCellCellMargin, videoMaxWidth, videoH);
         _videoImageViewFrame = CGRectMake((videoMaxWidth - videoW) / 2, 0, videoW, videoH);
         _videoPlaceholderFrame = CGRectMake((videoMaxWidth - 150) / 2, kTopicCellCellMargin, 150, 30);
-        _playButtonFrame = CGRectMake(0, 0, videoMaxWidth, videoH);
+        _playVideoButtonFrame = CGRectMake(0, 0, videoMaxWidth, videoH);
         
         // BottomCover
         _videoBottomCoverFrame = CGRectMake(0, videoH - 40, videoMaxWidth, 40);
@@ -185,10 +192,50 @@
         _videoPlayCountLabelFrame = CGRectZero;
         _videoTimeLabelFrame = CGRectZero;
         _videoPlaceholderFrame = CGRectZero;
-        _playButtonFrame = CGRectZero;
+        _playVideoButtonFrame = CGRectZero;
+        
     }
     
-    
+    // 声音
+    if (_topic.audio) {
+        self.isVoice = YES;
+        self.isVideo = NO;
+        self.isPicture = NO;
+        self.isGifPicture = NO;
+        self.isLongPicture = NO;
+        CGFloat voiceMaxWidth = kScreenWidth - 2 * kTopicCellCellMargin;
+        NSInteger voiceWidth = _topic.audio.width;
+        NSInteger voiceHeight = _topic.audio.height;
+        
+        CGFloat voiceW = kScreenWidth - 2 * kTopicCellCellMargin;
+        CGFloat voiceH = voiceHeight * voiceW / voiceWidth;
+        if (_isLongText) {
+            // +8让播放按钮突出来一点
+            _voiceContainerFrame = CGRectMake(kTopicCellCellMargin, CGRectGetMaxY(_longTextButtonFrame) + kTopicCellCellMargin, voiceMaxWidth, voiceH + 8);
+        }else {
+            _voiceContainerFrame = CGRectMake(kTopicCellCellMargin, CGRectGetMaxY(_textFrame) + kTopicCellCellMargin, voiceMaxWidth, voiceH + 8);
+        }
+        _voiceImageViewFrame = CGRectMake((voiceMaxWidth - voiceW) / 2, 0, voiceW, voiceH);
+        _voicePlaceholderFrame = CGRectMake((voiceMaxWidth - 150) / 2, kTopicCellCellMargin, 150, 30);
+        _playVoiceButtonFrame = CGRectMake((voiceMaxWidth - 63) / 2, _voiceContainerFrame.size.height - 63, 63, 63);
+        
+        // BottomCover
+        _voiceBottomCoverFrame = CGRectMake(0, voiceH - 40, voiceMaxWidth, 40);
+        
+        // 播放次数Label
+        self.voicePlayCountText = [NSString stringWithFormat:@"%ld播放",_topic.audio.playcount];
+        
+        CGSize playCountTextSize = [self.voicePlayCountText textSizeWithFont:[UIFont systemFontOfSize:kTopicCellVideoTextFontSize] maxSize:CGSizeMake(voiceMaxWidth , voiceH)];
+        _voicePlayCountLabelFrame = CGRectMake(2, voiceH - playCountTextSize.height - 2, playCountTextSize.width, playCountTextSize.height);
+        
+        // 视频时长Label
+        self.voiceTimeText = [self getFromTime:_topic.audio.duration];
+        CGSize timeTextSize = [self.voiceTimeText textSizeWithFont:[UIFont systemFontOfSize:kTopicCellVideoTextFontSize] maxSize:CGSizeMake(voiceW , voiceH)];
+        _voiceTimeLabelFrame = CGRectMake(voiceMaxWidth - timeTextSize.width -2, voiceH - timeTextSize.height - 2, timeTextSize.width, timeTextSize.height);
+        
+    }else {
+        self.isVoice = NO;
+    }
     
     // 工具条
     CGFloat toolBarY = CGRectGetMaxY(_textFrame);
@@ -196,6 +243,8 @@
         toolBarY = CGRectGetMaxY(_pictureContainerFrame);
     }else if (_isVideo) {
         toolBarY = CGRectGetMaxY(_videoContainerFrame);
+    }else if (_isVoice) {
+        toolBarY = CGRectGetMaxY(_voiceContainerFrame);
     }else if (_isLongText) {
         toolBarY = CGRectGetMaxY(_longTextButtonFrame);
     }
@@ -211,6 +260,8 @@
         _topicCellHeight = CGRectGetMaxY(_toolBarFrame);
     }
 }
+
+
 
 - (void)layoutHotCommentView {
     CGFloat hotCommentViewW = kScreenWidth - 2 * kTopicCellCellMargin;

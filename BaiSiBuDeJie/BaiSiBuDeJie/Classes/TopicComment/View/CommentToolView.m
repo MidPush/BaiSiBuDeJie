@@ -61,7 +61,7 @@
     photoButton.frame = CGRectMake(_toolBar.width - 28 - margin, (_toolBar.height - 28) / 2, 28, 28);
     [photoButton addTarget:self action:@selector(photoButtonClick) forControlEvents:UIControlEventTouchUpInside];
     
-    _textView = [[BSTextView alloc] initWithFrame:CGRectMake(_voiceButton.right + margin, 5, _toolBar.width - _voiceButton.width - photoButton.width - 4 * margin, _toolBar.height - 2 * 5)];
+    _textView = [[BSTextView alloc] initWithFrame:CGRectMake(_voiceButton.right + margin, 8, _toolBar.width - _voiceButton.width - photoButton.width - 4 * margin, _toolBar.height - 2 * 8)];
     _textView.placeholder = @"写评论...";
     _textView.layer.cornerRadius = 5;
     _textView.layer.borderWidth = 1 / [UIScreen mainScreen].scale;
@@ -124,7 +124,7 @@
     CGFloat keyboardHeight = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
     _keyboardHeight = keyboardHeight;
     [UIView animateWithDuration:duration animations:^{
-        self.frame = CGRectMake(0, self.superview.height -(keyboardHeight + _textView.height + 2 * 5), self.superview.width, keyboardHeight + _textView.height + 2 * 5);
+        self.frame = CGRectMake(0, self.superview.height -(keyboardHeight + _textView.height + 2 * 8), self.superview.width, keyboardHeight + _textView.height + 2 * 8);
 
     }];
     
@@ -137,7 +137,7 @@
         [self.delegate commentToolViewIsEditable:NO];
     }
     [UIView animateWithDuration:0.25 animations:^{
-        self.frame = CGRectMake(0, self.superview.height - (_textView.height + 2 * 5), self.superview.width,_textView.height + 2 * 5);
+        self.frame = CGRectMake(0, self.superview.height - (_textView.height + 2 * 8), self.superview.width,_textView.height + 2 * 8);
     }];
 }
 
@@ -160,7 +160,7 @@
     if (size.height <= maxHeight) {
 
         [UIView animateWithDuration:0.25 animations:^{
-            self.top = (self.superview.height - _keyboardHeight - _toolBar.height) - (size.height - (_toolBar.height - 2 * 5));
+            self.top = (self.superview.height - _keyboardHeight - _toolBar.height) - (size.height - (_toolBar.height - 2 * 8));
         }];
     }
     

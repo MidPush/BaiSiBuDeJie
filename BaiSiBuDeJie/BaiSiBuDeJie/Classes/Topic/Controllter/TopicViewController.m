@@ -118,6 +118,18 @@
 - (void)loadMoreData {
     TopicLayout *lastLayout = self.datas.lastObject;
     NSString *topicTime = lastLayout.topic.passtime;
+    for (NSInteger i = 0; i < topicTime.length; i++) {
+        NSRange range=NSMakeRange(i,1);
+        NSString *subString=[topicTime substringWithRange:range];
+        const char *cString=[subString UTF8String];
+        NSLog(@"%@",subString);
+        printf("%lu", strlen(cString));
+        if (strlen(cString) == 3)
+        {
+            topicTime = [topicTime stringByReplacingOccurrencesOfString:subString withString:@""];
+            i--;
+        }
+    }
     
     static NSDateFormatter *formatter = nil;
     static dispatch_once_t onceToken;
@@ -131,7 +143,6 @@
     if (self.viewControllerType == ViewControllerTypeEssence) {
         [ApiEngine getEssenceTopic:self.essencetopicType lastTopicPassTimeStamp:[NSString stringWithFormat:@"%ld",timeStamp] result:^(BOOL success, NSArray *data) {
             if (success) {
-                
                 [self.datas addObjectsFromArray:data];
                 [self.tableView reloadData];
                 self.tableView.mj_footer.hidden = (data.count < 20);
@@ -141,8 +152,15 @@
             [self.tableView.mj_footer endRefreshing];
         }];
     }else if (self.viewControllerType == ViewControllerTypeNew) {
-        [ApiEngine getNewTopic:self.newTopicType lastTopicPassTimeStamp:[NSString stringWithFormat:@"%ld",timeStamp] result:^(BOOL success, id data) {
-            
+        [ApiEngine getNewTopic:self.newTopicType lastTopicPassTimeStamp:[NSString stringWithFormat:@"%ld",timeStamp] result:^(BOOL success, NSArray *data) {
+            if (success) {
+                [self.datas addObjectsFromArray:data];
+                [self.tableView reloadData];
+                self.tableView.mj_footer.hidden = (data.count < 20);
+            }else {
+                
+            }
+            [self.tableView.mj_footer endRefreshing];
         }];
     }
     
@@ -225,7 +243,6 @@
 
 // 点击评论View的用户名
 - (void)onClickCommentUserName:(User *)user {
-    NSLog(@"%@",user.name);
     UserInfoViewController *vc = [[UserInfoViewController alloc] init];
     vc.user = user;
     [self.parentViewController.parentViewController.navigationController pushViewController:vc animated:YES];
