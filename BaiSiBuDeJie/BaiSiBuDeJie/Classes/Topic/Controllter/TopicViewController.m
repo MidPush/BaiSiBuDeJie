@@ -71,7 +71,8 @@
                 NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, array.count)];
                 [self.datas insertObjects:array atIndexes:indexSet];
                 [self.tableView reloadData];
-                self.tableView.mj_footer.hidden = (array.count < 20);
+//                self.tableView.mj_footer.hidden = (array.count < 20);
+                self.tableView.mj_footer.hidden = NO;
             }else {
                 
             }
@@ -105,7 +106,8 @@
                 NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, array.count)];
                 [self.datas insertObjects:array atIndexes:indexSet];
                 [self.tableView reloadData];
-                self.tableView.mj_footer.hidden = (array.count < 20);
+//                self.tableView.mj_footer.hidden = (array.count < 20);
+                self.tableView.mj_footer.hidden = NO;
             }else {
                 
             }
@@ -122,8 +124,6 @@
         NSRange range=NSMakeRange(i,1);
         NSString *subString=[topicTime substringWithRange:range];
         const char *cString=[subString UTF8String];
-        NSLog(@"%@",subString);
-        printf("%lu", strlen(cString));
         if (strlen(cString) == 3)
         {
             topicTime = [topicTime stringByReplacingOccurrencesOfString:subString withString:@""];
@@ -147,7 +147,7 @@
                 [self.tableView reloadData];
                 self.tableView.mj_footer.hidden = (data.count < 20);
             }else {
-                
+                [BSProgressHUD showToast:@"获取更多帖子失败"];
             }
             [self.tableView.mj_footer endRefreshing];
         }];
@@ -158,7 +158,7 @@
                 [self.tableView reloadData];
                 self.tableView.mj_footer.hidden = (data.count < 20);
             }else {
-                
+                [BSProgressHUD showToast:@"获取更多帖子失败"];
             }
             [self.tableView.mj_footer endRefreshing];
         }];

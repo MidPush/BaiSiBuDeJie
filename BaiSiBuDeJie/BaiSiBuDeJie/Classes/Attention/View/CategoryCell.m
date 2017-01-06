@@ -17,6 +17,7 @@
         self.selectedBackgroundView = [[UIView alloc] init];
         self.selectedBackgroundView.backgroundColor = kThemeColor;
         self.textLabel.textAlignment = NSTextAlignmentCenter;
+        self.textLabel.font = [UIFont systemFontOfSize:15];
     }
     return self;
 }

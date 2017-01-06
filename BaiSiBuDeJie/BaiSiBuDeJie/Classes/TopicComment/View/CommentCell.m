@@ -34,6 +34,7 @@
     _avatarView.cornerRadius = _avatarView.width * 0.5;
     _avatarView.userInteractionEnabled = YES;
     _vipIcon.hidden = YES;
+    _usernameLabel.userInteractionEnabled = YES;
     
     
     [_avatarView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickUser)]];

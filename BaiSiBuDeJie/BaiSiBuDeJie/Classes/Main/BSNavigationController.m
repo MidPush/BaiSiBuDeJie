@@ -60,11 +60,8 @@
 }
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
-    CGPoint touchPoint = [gestureRecognizer locationInView:self.view];
+//    CGPoint touchPoint = [gestureRecognizer locationInView:self.view];
     CGPoint translationPoint = [(UIPanGestureRecognizer *)gestureRecognizer translationInView:self.view];
-    
-    NSLog(@"touchPoint - %@",NSStringFromCGPoint(touchPoint));
-    NSLog(@"translationPoint - %@",NSStringFromCGPoint(translationPoint));
     return translationPoint.x > 0 && translationPoint.y == 0;
 }
 

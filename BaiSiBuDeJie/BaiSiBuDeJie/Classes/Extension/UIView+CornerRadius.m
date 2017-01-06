@@ -16,7 +16,7 @@
                                                          cornerRadii:cornerSize];
     // Create the shape layer and set its path
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    self.frame = self.bounds;
+    maskLayer.frame = self.bounds;
     maskLayer.path = maskPath.CGPath;
     
     // Set the newly created shape layer as the mask for the image view's layer

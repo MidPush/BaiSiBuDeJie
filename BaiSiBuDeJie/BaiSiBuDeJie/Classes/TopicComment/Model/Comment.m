@@ -105,7 +105,6 @@
         
         // 评论Cell总高度
         _commentCellHeight = CGRectGetMaxY(_contentViewFrame) + commentCellMargin;
-        NSLog(@"%.2f",_commentCellHeight);
     }
     
     return _commentCellHeight;

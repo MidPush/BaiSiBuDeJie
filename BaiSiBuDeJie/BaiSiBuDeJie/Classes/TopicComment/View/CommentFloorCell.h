@@ -11,5 +11,6 @@
 @class Comment;
 @interface CommentFloorCell : UITableViewCell
 
+@property (nonatomic, strong) Comment *comment;
 - (void)setComment:(Comment *)comment contentLabelFrame:(CGRect)contentLabelFrame contentImageViewFrame:(CGRect)contentImageViewFrame contentViewFrame:(CGRect)contentViewFrame;
 @end

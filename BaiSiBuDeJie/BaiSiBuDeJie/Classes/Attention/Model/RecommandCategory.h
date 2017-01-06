@@ -12,4 +12,6 @@
 @property (nonatomic, assign) NSInteger count;
 @property (nonatomic, assign) NSInteger categoryId;
 @property (nonatomic, copy) NSString *name;
+
+@property (nonatomic, strong) NSMutableArray *users;
 @end

@@ -14,4 +14,11 @@
              @"categoryId" : @"id",
              };
 }
+
+-(NSMutableArray *)users{
+    if (_users == nil) {
+        _users = [[NSMutableArray alloc] init];
+    }
+    return _users;
+}
 @end

@@ -26,6 +26,11 @@
     }
     
 }
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (IBAction)showLoginOrReister:(UIButton *)sender {
     
     [self.view endEditing:YES];

@@ -69,7 +69,6 @@ static NSString *identifier = @"CommentFloorCell";
         
         //
         _relpyCommentView.frame = comment.relpyCommentViewFrame;
-//        NSLog(@"%@",NSStringFromCGRect(_relpyCommentView.frame));
         [_relpyCommentView reloadData];
         
         //

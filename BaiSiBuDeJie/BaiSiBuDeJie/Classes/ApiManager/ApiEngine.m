@@ -16,6 +16,7 @@
 #import "ProfileInfo.h"
 #import "CommentGroup.h"
 #import "RecommandCategory.h"
+#import "RecommandUser.h"
 
 @implementation ApiEngine
 
@@ -197,23 +198,6 @@
     params[@"sex"] = @"m";
     params[@"userid"] = userId;
     
-    
-//    NSDictionary *params = @{
-//               @"appname":@"bs0315",
-//               @"asid":@"EE533A38-ABB9-4E7C-A5A3-44E19876BB2B",
-//               @"client":@"iphone",
-//               @"device":@"iphone%205S",
-//               @"from":@"ios",
-//               @"jbk":@"0",
-//               @"market":@"",
-//               @"openudid":@"29899e667f47b844b4277fb9a6243c3141b55199",
-//               @"sex":@"m",
-//               @"t":@(timeStamp),
-//               @"udid":@"",
-//               @"uid":userId,
-//               @"userid":userId,
-//               @"ver":@"4.5"
-//               };
     [ApiManager Get:url parameters:params success:^(id responseObject) {
         NSDictionary *dict = responseObject[@"data"];
         [dict writeToFile:@"/Users/zhong/Documents/profile.plist" atomically:YES];
@@ -230,9 +214,8 @@
 }
 
 
-+ (void)getRecommandCategory:(NSString *)uid result:(DataActionResult)reslut {
++ (void)getRecommandCategoryWithResult:(DataActionResult)reslut {
     NSString *url = @"http://d.api.budejie.com/subscribe/category/bs0315-iphone-4.5/0-30.json";
-//    NSMutableDictionary *params = [self commonParams];
     [ApiManager Get:url parameters:nil success:^(id responseObject) {
         NSDictionary *dict = responseObject;
         [dict writeToFile:@"/Users/zhong/Documents/subscribe.plist" atomically:YES];
@@ -241,6 +224,51 @@
         for (NSDictionary *dict in categorys) {
             RecommandCategory *category = [RecommandCategory yy_modelWithDictionary:dict];
             [array addObject:category];
+        }
+        if (reslut) {
+            reslut(YES, array);
+        }
+    } failure:^(NSError *error) {
+        if (reslut) {
+            reslut(NO, nil);
+        }
+    }];
+}
+
++ (void)getRecommandUserWithCategoryId:(NSString *)categoryId result:(DataActionResult)reslut {
+    NSString *url = [NSString stringWithFormat:@"http://d.api.budejie.com/subscribe/user/%@/0/bs0315-iphone-4.5/1-20.json", categoryId];
+    NSMutableDictionary *commentParams = [self commonParams];
+    [ApiManager Get:url parameters:commentParams success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        [dict writeToFile:@"/Users/zhong/Documents/user.plist" atomically:YES];
+        NSArray *top_list = responseObject[@"list"];
+        NSMutableArray *array = [NSMutableArray arrayWithCapacity:top_list.count];
+        for (NSDictionary *dict in top_list) {
+            RecommandUser *recommandUser = [RecommandUser yy_modelWithDictionary:dict];
+            [array addObject:recommandUser];
+        }
+        if (reslut) {
+            reslut(YES, array);
+        }
+    } failure:^(NSError *error) {
+        if (reslut) {
+            reslut(NO, nil);
+        }
+    }];
+}
+
++ (void)getRecommandUser:(NSDictionary *)params result:(DataActionResult)reslut {
+    NSString *url = @"http://api.budejie.com/api/api_open.php";
+    NSMutableDictionary *commentParams = [self commonParams];
+    [commentParams addEntriesFromDictionary:params];
+    [ApiManager Get:url parameters:commentParams success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        [dict writeToFile:@"/Users/zhong/Documents/user.plist" atomically:YES];
+        NSArray *top_list = responseObject[@"top_list"];
+        NSMutableArray *array = [NSMutableArray arrayWithCapacity:top_list.count];
+        for (NSDictionary *dict in top_list) {
+            RecommandUser *recommandUser = [RecommandUser yy_modelWithDictionary:dict];
+            [array addObject:recommandUser];
         }
         if (reslut) {
             reslut(YES, array);

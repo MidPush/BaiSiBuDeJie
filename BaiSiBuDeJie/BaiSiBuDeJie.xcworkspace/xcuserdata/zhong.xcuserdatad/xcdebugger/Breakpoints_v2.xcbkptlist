@@ -252,11 +252,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BaiSiBuDeJie/Classes/ApiManager/ApiEngine.m"
-            timestampString = "504848901.515585"
+            timestampString = "505225109.720004"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "+topicUrlWithEssenceTopicType:lastTopicPassTimeStamp:"
             landmarkType = "7">
          </BreakpointContent>
@@ -332,11 +332,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BaiSiBuDeJie/Classes/ApiManager/ApiEngine.m"
-            timestampString = "504848901.515585"
+            timestampString = "505225109.720004"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "+getTopicCommentList:result:"
             landmarkType = "7">
          </BreakpointContent>
@@ -396,11 +396,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BaiSiBuDeJie/Classes/TopicComment/Controller/CommentViewController.m"
-            timestampString = "504935019.177195"
+            timestampString = "505119970.550718"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -444,11 +444,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BaiSiBuDeJie/Classes/TopicComment/Controller/CommentViewController.m"
-            timestampString = "504935308.405459"
+            timestampString = "505121167.419645"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
             landmarkName = "-onClickUserNameOrAvatar:"
             landmarkType = "7">
          </BreakpointContent>

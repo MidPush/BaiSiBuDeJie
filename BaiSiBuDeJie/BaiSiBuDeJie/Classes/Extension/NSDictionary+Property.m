@@ -15,7 +15,6 @@
     
     NSMutableString *codes = [NSMutableString string];
     [self enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull value, BOOL * _Nonnull stop) {
-        //NSLog(@"%@",[value class]);
         NSString *code;
         if ([value isKindOfClass:NSClassFromString(@"__NSCFBoolean")]) {
             code = [NSString stringWithFormat:@"@property (nonatomic, assign) BOOL %@;",key];

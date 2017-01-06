@@ -50,7 +50,13 @@ typedef void (^DataActionResult)(BOOL success, id data);
 + (void)getUserProfileInfo:(NSString *)userId result:(DataActionResult)reslut;
 
 /// 获取推荐关注分类数据
-+ (void)getRecommandCategory:(NSString *)uid result:(DataActionResult)reslut;
++ (void)getRecommandCategoryWithResult:(DataActionResult)reslut;
+
+/// 获取推荐关注分类用户数据（网红、精品等。）
++ (void)getRecommandUserWithCategoryId:(NSString *)categoryId result:(DataActionResult)reslut;
+
+/// 获取推荐关注用户数据(推荐)
++ (void)getRecommandUser:(NSDictionary *)params result:(DataActionResult)reslut;
 
 
 @end

@@ -25,36 +25,41 @@
     [super awakeFromNib];
     self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"comment_floor_cell_line_1x1_"]];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    _usernameLabel.userInteractionEnabled = YES;
+    [_usernameLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickUser)]];
 }
 
 - (void)setComment:(Comment *)comment contentLabelFrame:(CGRect)contentLabelFrame contentImageViewFrame:(CGRect)contentImageViewFrame contentViewFrame:(CGRect)contentViewFrame {
-        
-        // 楼层
-        _floorLabel.text = [NSString stringWithFormat:@"%ld",comment.floor];
-        
-        // 昵称
-        NSString *username = comment.user.username;
-        if (!username) {
-            username = comment.user.name;
-        }
-        _usernameLabel.text = username;
-        if (comment.user.is_vip) {
-            _usernameLabel.textColor = kTopicCellUserNameVipColor;
-        }else {
-            _usernameLabel.textColor = TextBlueColor;
-        }
+    _comment = comment;
+    // 楼层
+    _floorLabel.text = [NSString stringWithFormat:@"%ld",comment.floor];
     
-        // 点赞数
-        _likeCountLabel.text = [NSString stringWithFormat:@"%ld",comment.like_count];
-        if (comment.like_count == 0) {
-            _likeCountLabel.text = @"+1";
-        }
-        
-        // 评论
-        self.floorContentView.frame = contentViewFrame;
-        [self.floorContentView setComment:comment contentLabelFrame:contentLabelFrame contentImageViewFrame:contentImageViewFrame];
+    // 昵称
+    NSString *username = comment.user.username;
+    if (!username) {
+        username = comment.user.name;
+    }
+    _usernameLabel.text = username;
+    if (comment.user.is_vip) {
+        _usernameLabel.textColor = kTopicCellUserNameVipColor;
+    }else {
+        _usernameLabel.textColor = TextBlueColor;
+    }
 
+    // 点赞数
+    _likeCountLabel.text = [NSString stringWithFormat:@"%ld",comment.like_count];
+    if (comment.like_count == 0) {
+        _likeCountLabel.text = @"+1";
+    }
     
+    // 评论
+    self.floorContentView.frame = contentViewFrame;
+    [self.floorContentView setComment:comment contentLabelFrame:contentLabelFrame contentImageViewFrame:contentImageViewFrame];
+}
+
+- (void)onClickUser {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"CommentFloorUserNameDidClick" object:nil userInfo:@{@"user":_comment.user}];
 }
 
 

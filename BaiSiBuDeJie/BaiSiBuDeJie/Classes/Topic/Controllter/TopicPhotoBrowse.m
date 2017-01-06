@@ -52,9 +52,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    NSLog(@"%@",NSStringFromCGRect(self.photoView.frame));
-    NSLog(@"%@",NSStringFromUIEdgeInsets(self.photoView.contentInset));
-    NSLog(@"%@",NSStringFromCGPoint(self.photoView.contentOffset));
+    
     [self showImageView];
 }
 

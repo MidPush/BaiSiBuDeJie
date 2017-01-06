@@ -17,6 +17,7 @@
 		2708F0AA1E0A7E4D00EFF517 /* ApiEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2708F0A91E0A7E4D00EFF517 /* ApiEngine.m */; };
 		2708F0B01E0A831D00EFF517 /* NSDictionary+Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 2708F0AF1E0A831D00EFF517 /* NSDictionary+Property.m */; };
 		2708F0B61E0A85B100EFF517 /* BaseRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2708F0B51E0A85B100EFF517 /* BaseRefreshViewController.m */; };
+		27419DFC1E1F6840009D41C8 /* BSProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 27419DFB1E1F6840009D41C8 /* BSProgressHUD.m */; };
 		27705CCF1E11077E00B87A88 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27705CCC1E11077E00B87A88 /* CommentViewController.m */; };
 		2772C1571E08D53B00A8F172 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2772C1561E08D53B00A8F172 /* MainViewController.m */; };
 		2772C15A1E08D5D600A8F172 /* MainTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2772C1591E08D5D600A8F172 /* MainTabBarItem.m */; };
@@ -34,7 +35,6 @@
 		279972DA1E1748EA005806F1 /* RecommandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279972D91E1748EA005806F1 /* RecommandViewController.m */; };
 		279972DD1E175994005806F1 /* RecommandCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 279972DC1E175994005806F1 /* RecommandCategory.m */; };
 		279972E01E175B4F005806F1 /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 279972DF1E175B4F005806F1 /* CategoryCell.m */; };
-		279972E31E175DF0005806F1 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 279972E21E175DF0005806F1 /* UserCell.m */; };
 		279991FB1E15F648002CB4B3 /* TopicVoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 279991FA1E15F648002CB4B3 /* TopicVoice.m */; };
 		279991FE1E15F7AA002CB4B3 /* TopicVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 279991FD1E15F7AA002CB4B3 /* TopicVoiceView.m */; };
 		279992071E162F62002CB4B3 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279992021E162F62002CB4B3 /* UserInfoViewController.m */; };
@@ -77,6 +77,10 @@
 		27AA14781E0BA4FB005FFC07 /* XZPagesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA14751E0BA4FB005FFC07 /* XZPagesController.m */; };
 		27AA14791E0BA4FB005FFC07 /* XZPagesControllerTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA14771E0BA4FB005FFC07 /* XZPagesControllerTopBar.m */; };
 		27AA147F1E0BA6DA005FFC07 /* EssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA147E1E0BA6DA005FFC07 /* EssenceViewController.m */; };
+		27BFA39A1E1D1165009311DD /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA3981E1D1165009311DD /* UserCell.m */; };
+		27BFA39B1E1D1165009311DD /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27BFA3991E1D1165009311DD /* UserCell.xib */; };
+		27BFA39E1E1D1D7A009311DD /* RecommandUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA39D1E1D1D7A009311DD /* RecommandUser.m */; };
+		27BFA3A11E1D2F8A009311DD /* RecommentRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA3A01E1D2F8A009311DD /* RecommentRefreshHeader.m */; };
 		27D4582E1E0AC4CF00E31AC1 /* UIView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D4582D1E0AC4CF00E31AC1 /* UIView+CornerRadius.m */; };
 		27D458371E0ACF8A00E31AC1 /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D458361E0ACF8A00E31AC1 /* NSString+Size.m */; };
 		27EABDBB1E0C0613001E6E12 /* NSMutableAttributedString+RichText.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EABDBA1E0C0613001E6E12 /* NSMutableAttributedString+RichText.m */; };
@@ -129,6 +133,8 @@
 		2708F0AF1E0A831D00EFF517 /* NSDictionary+Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Property.m"; sourceTree = "<group>"; };
 		2708F0B41E0A85B100EFF517 /* BaseRefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRefreshViewController.h; sourceTree = "<group>"; };
 		2708F0B51E0A85B100EFF517 /* BaseRefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRefreshViewController.m; sourceTree = "<group>"; };
+		27419DFA1E1F6840009D41C8 /* BSProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSProgressHUD.h; sourceTree = "<group>"; };
+		27419DFB1E1F6840009D41C8 /* BSProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSProgressHUD.m; sourceTree = "<group>"; };
 		27705CCB1E11077E00B87A88 /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
 		27705CCC1E11077E00B87A88 /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
 		2772C1551E08D53B00A8F172 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -165,8 +171,6 @@
 		279972DC1E175994005806F1 /* RecommandCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommandCategory.m; sourceTree = "<group>"; };
 		279972DE1E175B4F005806F1 /* CategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
 		279972DF1E175B4F005806F1 /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
-		279972E11E175DF0005806F1 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
-		279972E21E175DF0005806F1 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
 		279991F91E15F648002CB4B3 /* TopicVoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicVoice.h; sourceTree = "<group>"; };
 		279991FA1E15F648002CB4B3 /* TopicVoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicVoice.m; sourceTree = "<group>"; };
 		279991FC1E15F7AA002CB4B3 /* TopicVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicVoiceView.h; sourceTree = "<group>"; };
@@ -248,6 +252,13 @@
 		27AA14771E0BA4FB005FFC07 /* XZPagesControllerTopBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZPagesControllerTopBar.m; sourceTree = "<group>"; };
 		27AA147D1E0BA6DA005FFC07 /* EssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EssenceViewController.h; sourceTree = "<group>"; };
 		27AA147E1E0BA6DA005FFC07 /* EssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EssenceViewController.m; sourceTree = "<group>"; };
+		27BFA3971E1D1165009311DD /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
+		27BFA3981E1D1165009311DD /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
+		27BFA3991E1D1165009311DD /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		27BFA39C1E1D1D7A009311DD /* RecommandUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommandUser.h; sourceTree = "<group>"; };
+		27BFA39D1E1D1D7A009311DD /* RecommandUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommandUser.m; sourceTree = "<group>"; };
+		27BFA39F1E1D2F8A009311DD /* RecommentRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommentRefreshHeader.h; sourceTree = "<group>"; };
+		27BFA3A01E1D2F8A009311DD /* RecommentRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommentRefreshHeader.m; sourceTree = "<group>"; };
 		27D4582C1E0AC4CF00E31AC1 /* UIView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CornerRadius.h"; sourceTree = "<group>"; };
 		27D4582D1E0AC4CF00E31AC1 /* UIView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CornerRadius.m"; sourceTree = "<group>"; };
 		27D458351E0ACF8A00E31AC1 /* NSString+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Size.h"; sourceTree = "<group>"; };
@@ -421,6 +432,8 @@
 			children = (
 				279972DB1E175994005806F1 /* RecommandCategory.h */,
 				279972DC1E175994005806F1 /* RecommandCategory.m */,
+				27BFA39C1E1D1D7A009311DD /* RecommandUser.h */,
+				27BFA39D1E1D1D7A009311DD /* RecommandUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -430,8 +443,9 @@
 			children = (
 				279972DE1E175B4F005806F1 /* CategoryCell.h */,
 				279972DF1E175B4F005806F1 /* CategoryCell.m */,
-				279972E11E175DF0005806F1 /* UserCell.h */,
-				279972E21E175DF0005806F1 /* UserCell.m */,
+				27BFA3971E1D1165009311DD /* UserCell.h */,
+				27BFA3981E1D1165009311DD /* UserCell.m */,
+				27BFA3991E1D1165009311DD /* UserCell.xib */,
 				2707F7AB1E17799100C6FC46 /* VisitorView.h */,
 				2707F7AC1E17799100C6FC46 /* VisitorView.m */,
 				2707F7AE1E1779AB00C6FC46 /* VisitorView.xib */,
@@ -445,6 +459,8 @@
 				2772C1661E08D7C800A8F172 /* UIDefine.h */,
 				2772C1631E08D7AB00A8F172 /* BaseViewController.h */,
 				2772C1641E08D7AB00A8F172 /* BaseViewController.m */,
+				27BFA39F1E1D2F8A009311DD /* RecommentRefreshHeader.h */,
+				27BFA3A01E1D2F8A009311DD /* RecommentRefreshHeader.m */,
 				2708F0B41E0A85B100EFF517 /* BaseRefreshViewController.h */,
 				2708F0B51E0A85B100EFF517 /* BaseRefreshViewController.m */,
 				27EFF9371E10E99600837B42 /* ShareView.h */,
@@ -724,6 +740,8 @@
 			children = (
 				27AA14731E0BA4FB005FFC07 /* PageController */,
 				279992091E162F8C002CB4B3 /* VideoPlayer */,
+				27419DFA1E1F6840009D41C8 /* BSProgressHUD.h */,
+				27419DFB1E1F6840009D41C8 /* BSProgressHUD.m */,
 			);
 			path = ThreePart;
 			sourceTree = "<group>";
@@ -934,6 +952,7 @@
 				2707F7B81E17842000C6FC46 /* LoginRegisterViewController.xib in Resources */,
 				27EFF97F1E10ED9600837B42 /* ShareView.xib in Resources */,
 				27A6F3411E125EB100F21347 /* CommentFloorCell.xib in Resources */,
+				27BFA39B1E1D1165009311DD /* UserCell.xib in Resources */,
 				27EDBBCD1E08CBFA00F3ADC8 /* Assets.xcassets in Resources */,
 				2799921A1E163128002CB4B3 /* ProfileHeaderView.xib in Resources */,
 				2707F7AF1E1779AB00C6FC46 /* VisitorView.xib in Resources */,
@@ -1015,6 +1034,7 @@
 				278FBB211E13607A000623E3 /* PublishItem.m in Sources */,
 				279992111E162F8D002CB4B3 /* BSVideoPlayer.m in Sources */,
 				2772C1611E08D6EC00A8F172 /* UIBarButtonItem+Item.m in Sources */,
+				27BFA39A1E1D1165009311DD /* UserCell.m in Sources */,
 				279E5F941E0CC78400B0E813 /* TopicVideoView.m in Sources */,
 				279972E01E175B4F005806F1 /* CategoryCell.m in Sources */,
 				279992071E162F62002CB4B3 /* UserInfoViewController.m in Sources */,
@@ -1050,7 +1070,6 @@
 				2772C1751E08DB2E00A8F172 /* MeViewController.m in Sources */,
 				27D4582E1E0AC4CF00E31AC1 /* UIView+CornerRadius.m in Sources */,
 				2772C1691E08DABD00A8F172 /* BSNavigationController.m in Sources */,
-				279972E31E175DF0005806F1 /* UserCell.m in Sources */,
 				27EDBBC21E08CBFA00F3ADC8 /* main.m in Sources */,
 				279E5F851E0CC78400B0E813 /* TopicViewController.m in Sources */,
 				279E5F8B1E0CC78400B0E813 /* TopicTag.m in Sources */,
@@ -1064,6 +1083,7 @@
 				279992081E162F62002CB4B3 /* User.m in Sources */,
 				279E5F911E0CC78400B0E813 /* TopicPictureView.m in Sources */,
 				278FBB1E1E135F16000623E3 /* PublishView.m in Sources */,
+				27BFA39E1E1D1D7A009311DD /* RecommandUser.m in Sources */,
 				279E5F901E0CC78400B0E813 /* TopicHotCommentView.m in Sources */,
 				27705CCF1E11077E00B87A88 /* CommentViewController.m in Sources */,
 				2708F0B61E0A85B100EFF517 /* BaseRefreshViewController.m in Sources */,
@@ -1077,7 +1097,9 @@
 				27A6F3311E120FBD00F21347 /* CommentGroup.m in Sources */,
 				279E5F8D1E0CC78400B0E813 /* TopicVideo.m in Sources */,
 				278FBB241E1398D4000623E3 /* BSActionSheet.m in Sources */,
+				27BFA3A11E1D2F8A009311DD /* RecommentRefreshHeader.m in Sources */,
 				279E5F881E0CC78400B0E813 /* TopicHtml.m in Sources */,
+				27419DFC1E1F6840009D41C8 /* BSProgressHUD.m in Sources */,
 				27A6F32B1E120D3D00F21347 /* Comment.m in Sources */,
 				2772C15A1E08D5D600A8F172 /* MainTabBarItem.m in Sources */,
 			);
@@ -1155,7 +1177,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1196,7 +1218,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

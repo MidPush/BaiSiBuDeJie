@@ -99,16 +99,20 @@
     
 }
 
-- (void) setupNavigationBar{
+- (void)setupNavigationBar {
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    
-    self.navigationItem.title = self.user.name;
-    UIBarButtonItem *rightItem = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"comment_nav_item_share_icon_22x3_"] highlightImage:[UIImage imageNamed:@"comment_nav_item_share_icon_click_22x3_"] target:self action:@selector(share)];
+    NSString *username = self.user.name;
+    if (username.length == 0) {
+        username = self.user.username;
+    }
+    self.navigationItem.title = username;
+    UIBarButtonItem *rightItem = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"comment_nav_item_share_icon_22x3_"] highlightImage:[UIImage imageNamed:@"comment_nav_item_share_icon_click_22x3_"] target:self action:@selector(menuItemClick)];
     self.navigationItem.rightBarButtonItem = rightItem;
 }
 
-- (void)share {
-    
+- (void)menuItemClick {
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"帖子筛选",@"正序",@"倒序",@"举报", nil];
+    [sheet showInView:self.view];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

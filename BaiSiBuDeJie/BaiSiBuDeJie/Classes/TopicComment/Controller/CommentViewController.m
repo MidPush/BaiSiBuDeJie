@@ -39,6 +39,8 @@ static NSString *identifier = @"CommentCell";
     [self setupNavigationBar];
     [self setupUI];
     [self loadNewData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(commentFloorUserNameDidClick:) name:@"CommentFloorUserNameDidClick" object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -218,10 +220,24 @@ static NSString *identifier = @"CommentCell";
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+// 点击楼中楼用户昵称
+- (void)commentFloorUserNameDidClick:(NSNotification *)notification {
+    User *user = notification.userInfo[@"user"];
+    UserInfoViewController *vc = [[UserInfoViewController alloc] init];
+    vc.user = user;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 // 点击全文按钮
 - (void)onClickLongTextButtonWithCell:(TopicCell *)cell {
     [cell.layout reloadLayoutForLongText];
-    [self.tableView reloadRowsAtIndexPaths:@[cell.indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    [cell setLayout:cell.layout];
+    if (self.layout.hotCommentViewFrame.size.height > 0) {
+        cell.height = self.layout.topicCellHeight - (self.layout.hotCommentViewFrame.size.height + kTopicCellCellMargin);
+    }else {
+        cell.height = self.layout.topicCellHeight;
+    }
+    [self.tableView reloadData];
 }
 
 - (void)commentToolViewIsEditable:(BOOL)isEditable {
@@ -230,6 +246,10 @@ static NSString *identifier = @"CommentCell";
     }else {
         self.navigationController.navigationBar.userInteractionEnabled = YES;
     }
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
