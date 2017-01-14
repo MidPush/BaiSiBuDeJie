@@ -24,7 +24,6 @@
     if (self.showType == ShowTypeRigister) {
         [self showLoginOrReister:self.changeButton];
     }
-    
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {

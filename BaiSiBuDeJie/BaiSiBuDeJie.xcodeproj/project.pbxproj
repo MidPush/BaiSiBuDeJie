@@ -17,7 +17,6 @@
 		2708F0AA1E0A7E4D00EFF517 /* ApiEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2708F0A91E0A7E4D00EFF517 /* ApiEngine.m */; };
 		2708F0B01E0A831D00EFF517 /* NSDictionary+Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 2708F0AF1E0A831D00EFF517 /* NSDictionary+Property.m */; };
 		2708F0B61E0A85B100EFF517 /* BaseRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2708F0B51E0A85B100EFF517 /* BaseRefreshViewController.m */; };
-		27419DFC1E1F6840009D41C8 /* BSProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 27419DFB1E1F6840009D41C8 /* BSProgressHUD.m */; };
 		27705CCF1E11077E00B87A88 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27705CCC1E11077E00B87A88 /* CommentViewController.m */; };
 		2772C1571E08D53B00A8F172 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2772C1561E08D53B00A8F172 /* MainViewController.m */; };
 		2772C15A1E08D5D600A8F172 /* MainTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2772C1591E08D5D600A8F172 /* MainTabBarItem.m */; };
@@ -29,6 +28,7 @@
 		2772C1721E08DB2300A8F172 /* AttentionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2772C1711E08DB2300A8F172 /* AttentionViewController.m */; };
 		2772C1751E08DB2E00A8F172 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2772C1741E08DB2E00A8F172 /* MeViewController.m */; };
 		2772C17B1E08E29900A8F172 /* UIColor+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 2772C17A1E08E29900A8F172 /* UIColor+Ex.m */; };
+		2787A7DE1E2A290500391542 /* BSProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2787A7DD1E2A290500391542 /* BSProgressHUD.m */; };
 		278FBB1E1E135F16000623E3 /* PublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 278FBB1D1E135F16000623E3 /* PublishView.m */; };
 		278FBB211E13607A000623E3 /* PublishItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 278FBB201E13607A000623E3 /* PublishItem.m */; };
 		278FBB241E1398D4000623E3 /* BSActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 278FBB231E1398D4000623E3 /* BSActionSheet.m */; };
@@ -133,8 +133,6 @@
 		2708F0AF1E0A831D00EFF517 /* NSDictionary+Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Property.m"; sourceTree = "<group>"; };
 		2708F0B41E0A85B100EFF517 /* BaseRefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRefreshViewController.h; sourceTree = "<group>"; };
 		2708F0B51E0A85B100EFF517 /* BaseRefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRefreshViewController.m; sourceTree = "<group>"; };
-		27419DFA1E1F6840009D41C8 /* BSProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSProgressHUD.h; sourceTree = "<group>"; };
-		27419DFB1E1F6840009D41C8 /* BSProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSProgressHUD.m; sourceTree = "<group>"; };
 		27705CCB1E11077E00B87A88 /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
 		27705CCC1E11077E00B87A88 /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
 		2772C1551E08D53B00A8F172 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -159,6 +157,8 @@
 		2772C1741E08DB2E00A8F172 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		2772C1791E08E29900A8F172 /* UIColor+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Ex.h"; sourceTree = "<group>"; };
 		2772C17A1E08E29900A8F172 /* UIColor+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Ex.m"; sourceTree = "<group>"; };
+		2787A7DC1E2A290500391542 /* BSProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSProgressHUD.h; sourceTree = "<group>"; };
+		2787A7DD1E2A290500391542 /* BSProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSProgressHUD.m; sourceTree = "<group>"; };
 		278FBB1C1E135F16000623E3 /* PublishView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishView.h; sourceTree = "<group>"; };
 		278FBB1D1E135F16000623E3 /* PublishView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishView.m; sourceTree = "<group>"; };
 		278FBB1F1E13607A000623E3 /* PublishItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishItem.h; sourceTree = "<group>"; };
@@ -738,10 +738,10 @@
 		27AA14721E0BA4DA005FFC07 /* ThreePart */ = {
 			isa = PBXGroup;
 			children = (
+				2787A7DC1E2A290500391542 /* BSProgressHUD.h */,
+				2787A7DD1E2A290500391542 /* BSProgressHUD.m */,
 				27AA14731E0BA4FB005FFC07 /* PageController */,
 				279992091E162F8C002CB4B3 /* VideoPlayer */,
-				27419DFA1E1F6840009D41C8 /* BSProgressHUD.h */,
-				27419DFB1E1F6840009D41C8 /* BSProgressHUD.m */,
 			);
 			path = ThreePart;
 			sourceTree = "<group>";
@@ -1099,7 +1099,7 @@
 				278FBB241E1398D4000623E3 /* BSActionSheet.m in Sources */,
 				27BFA3A11E1D2F8A009311DD /* RecommentRefreshHeader.m in Sources */,
 				279E5F881E0CC78400B0E813 /* TopicHtml.m in Sources */,
-				27419DFC1E1F6840009D41C8 /* BSProgressHUD.m in Sources */,
+				2787A7DE1E2A290500391542 /* BSProgressHUD.m in Sources */,
 				27A6F32B1E120D3D00F21347 /* Comment.m in Sources */,
 				2772C15A1E08D5D600A8F172 /* MainTabBarItem.m in Sources */,
 			);

@@ -9,5 +9,6 @@ pod 'Masonry'
 pod 'SVProgressHUD'
 pod 'pop'
 pod 'YYModel'
+pod 'FLAnimatedImage', '~> 1.0'
 
 end

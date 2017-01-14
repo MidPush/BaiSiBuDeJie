@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '7A04373139B67AC049873A2F70F7BD80'
-               BlueprintName = 'pop'
+               BlueprintIdentifier = '1A79BA86DB198181905CBBFC1F1E6701'
+               BlueprintName = 'FLAnimatedImage'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libpop.a'>
+               BuildableName = 'libFLAnimatedImage.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

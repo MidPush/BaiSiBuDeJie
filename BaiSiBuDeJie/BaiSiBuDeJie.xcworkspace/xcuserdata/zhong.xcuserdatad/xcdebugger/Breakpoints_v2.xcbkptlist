@@ -316,11 +316,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BaiSiBuDeJie/Classes/Topic/View/TopicPictureView.m"
-            timestampString = "504682330.990786"
+            timestampString = "506077813.066182"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "-pictureTapped:"
             landmarkType = "7">
          </BreakpointContent>

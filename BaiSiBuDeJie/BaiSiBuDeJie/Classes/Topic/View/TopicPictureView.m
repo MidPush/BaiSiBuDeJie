@@ -9,11 +9,11 @@
 #import "TopicPictureView.h"
 #import "TopicLayout.h"
 #import "UIImageView+WebCache.h"
-
+#import "FLAnimatedImage.h"
 #import "TopicPhotoBrowse.h"
 
 @interface TopicPictureView ()
-@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) FLAnimatedImageView *imageView;
 @property (nonatomic, strong) UIImageView *placeholder;
 @property (nonatomic, strong) UIButton *seeBigPictureButton;
 @property (nonatomic, strong) UIImageView *gifIcon;
@@ -28,7 +28,8 @@
         
         _placeholder = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"imageBackground_75x15_"]];
         
-        _imageView = [[UIImageView alloc] init];
+        _imageView = [[FLAnimatedImageView alloc] init];
+        _imageView.runLoopMode = NSDefaultRunLoopMode;
         _imageView.contentMode = UIViewContentModeScaleAspectFill;
         _imageView.clipsToBounds = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pictureTapped:)];
@@ -115,20 +116,36 @@
     [_imageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
             _imageView.userInteractionEnabled = YES;
-            
+
             if (layout.isLongPicture) {
                 CGFloat width = image.size.width;
                 CGFloat height = image.size.height;
                 _imageView.contentMode = UIViewContentModeScaleToFill;
                 _imageView.layer.contentsRect = CGRectMake(0, 0, 1, (float)width / height);
-                
+
             }else {
                 _imageView.contentMode = UIViewContentModeScaleAspectFill;
                 _imageView.layer.contentsRect = CGRectMake(0, 0, 1, 1);
             }
         }
-        
     }];
+//    [_imageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+//        if (image) {
+//            _imageView.userInteractionEnabled = YES;
+//            
+//            if (layout.isLongPicture) {
+//                CGFloat width = image.size.width;
+//                CGFloat height = image.size.height;
+//                _imageView.contentMode = UIViewContentModeScaleToFill;
+//                _imageView.layer.contentsRect = CGRectMake(0, 0, 1, (float)width / height);
+//                
+//            }else {
+//                _imageView.contentMode = UIViewContentModeScaleAspectFill;
+//                _imageView.layer.contentsRect = CGRectMake(0, 0, 1, 1);
+//            }
+//        }
+//        
+//    }];
 
 }
 
