@@ -110,7 +110,7 @@
         case NewTopicTypeYouXi:
             path = @"tag-topic/164/new";
             break;
-        case NewTopicShengYin:
+        case NewTopicTypeShengYin:
             path = @"list/zuixin/31";
             break;
         

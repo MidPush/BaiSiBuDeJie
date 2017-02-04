@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNavigationBar];
+    [self welcomeStars];
 }
 
 - (void)setupNavigationBar {
@@ -30,6 +31,16 @@
     
 }
 
+- (void)welcomeStars {
+    UILabel *welcomeLabel = [[UILabel alloc] init];
+    welcomeLabel.frame = CGRectMake(10, 64, self.view.width - 10 * 2, 200);
+    welcomeLabel.numberOfLines = 0;
+    welcomeLabel.text = @"帮忙去github点个星星吧谢谢!\n<爱你一万年>";
+    welcomeLabel.textColor = [UIColor redColor];
+    welcomeLabel.font = [UIFont boldSystemFontOfSize:30];
+    welcomeLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:welcomeLabel];
+}
 
 - (void)leftItemClick {
     

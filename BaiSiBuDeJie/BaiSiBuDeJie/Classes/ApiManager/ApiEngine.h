@@ -30,7 +30,7 @@ typedef NS_ENUM(NSUInteger, NewTopicType) {
     NewTopicTypeMeiNv,
     NewTopicTypeLengZhiShi,
     NewTopicTypeYouXi,
-    NewTopicShengYin,
+    NewTopicTypeShengYin,
 };
 
 typedef void (^DataActionResult)(BOOL success, id data);
