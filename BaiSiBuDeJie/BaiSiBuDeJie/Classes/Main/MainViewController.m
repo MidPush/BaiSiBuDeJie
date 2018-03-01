@@ -31,6 +31,25 @@
     [self customTabBar];
 }
 
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    for (UIView *view in self.tabBar.subviews) {
+        if ([view isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+            [view removeFromSuperview];
+        }
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    for (UIView *view in self.tabBar.subviews) {
+        if ([view isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+            [view removeFromSuperview];
+        }
+    }
+}
+
 - (void)customTabBar {
     
     for (UIView *view in self.tabBar.subviews) {
